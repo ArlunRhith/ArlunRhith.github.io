@@ -1,5 +1,7 @@
-$('tr.expand').click(function(){
-    $(this).nextUntil('tr.expand').css('display', function(i,v){
+$('tr').hide().filter(function () {
+    return $(this).find('td[colspan]').length;
+}).addClass('header').css('display', 'table-row').click(function () {
+    $(this).nextUntil('tr.header').css('display', function (i, v) {
         return this.style.display === 'table-row' ? 'none' : 'table-row';
     });
 });
