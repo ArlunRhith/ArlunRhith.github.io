@@ -361,7 +361,66 @@
 									<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9KSEADMwBlHuHaXcnLlg8BAw2nVU_jb8AuNXV2nMaPJyrtTNY0xKZVj0AhyIsdmdfDQ3VfhdpvD7T/pubhtml?gid=968162610&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 							
 									<iframe src="https://script.google.com/macros/s/AKfycbzmUGCzed-SAorNHyHrPLxDSI7eDFjl3SV-Fro9fWizYAZ-VqpQDp9LsgrNhmKB1I1F/exec" 
-height="500" width="100%"></iframe>									
+height="500" width="100%"></iframe>	
+
+									<div class="container">
+										<!-- Table -->
+										<table class="table">
+										<thead id="table-head"></thead>
+										<tbody id="table-body"></tbody>
+										</table>
+										<!-- Table -->
+									</div>
+
+									<!-- Google API -->
+									<script src="https://apis.google.com/js/api.js"></script>
+									<!-- easyData -->
+									<script type="text/javascript" src="js/easyData-google-sheets.js"></script>
+
+									<!-- easyData - Creating table -->
+									<script>
+										{
+										{
+											// Your API KEY
+											const API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
+
+											function displayResult2(response) {
+											let tableHead = "";
+											let tableBody = "";
+
+											response.result.values.forEach((row, index) => {
+												if (index === 0) {
+												tableHead += "<tr>";
+												row.forEach((val) => (tableHead += "<th>" + val + "</th>"));
+												tableHead += "</tr>";
+												} else {
+												tableBody += "<tr>";
+												row.forEach((val) => (tableBody += "<td>" + val + "</td>"));
+												tableBody += "</tr>";
+												}
+											});
+
+											document.getElementById("table-head").innerHTML = tableHead;
+											document.getElementById("table-body").innerHTML = tableBody;
+											}
+
+											function loadData() {
+											// Spreadsheet ID
+											const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
+											const range = "Cantrips!A2:H";
+											getPublicValues({ spreadsheetId, range }, displayResult2);
+											}
+
+											window.addEventListener("load", (e) => {
+											initOAuthClient({ apiKey: API_KEY });
+											});
+
+											document.addEventListener("gapi-loaded", (e) => {
+											loadData();
+											});
+										}
+										}
+									</script>
 
 							</article>
 
