@@ -12,17 +12,13 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			tr.hide {
+				display: none;
+			}
 
-			tr.expandable
-			{
+			tr.expand {
 				cursor:pointer;
-			}
-			.expandable .sign:after{
-			content:"+";
-			display:inline-block;      
-			}
-			.expandable.expand .sign:after{
-			content:"-";
+				display: table-row;
 			}
 		</style>
 	</head>
@@ -97,15 +93,15 @@
 														});
 														tableHead += "</tr>";
 													} else {
-														tableBody += "<tr class='expandable expand'>";
+														tableBody += "<tr class='expand'>";
 														row.forEach((val, rowindex) => {
 															if (rowindex < 7) {
 																(tableBody += "<td>" + val + "</td>")
 															}
 													});
 														tableBody += "</tr>";
-														tableBody += "<tr>";
-														tableBody += "<td colspan='7'>" + row[7] + "<span class='sign'></span>" + "</td>"
+														tableBody += "<tr class='hide'>";
+														tableBody += "<td colspan='7'>" + row[7] + "</td>"
 														tableBody += "</tr>";
 													}
 												});
@@ -128,12 +124,16 @@
 											document.addEventListener("gapi-loaded", (e) => {
 												loadCantrips();
 											});
+										}
+										}
+									</script>
 
-											$('.expandable').click(function(){
-												$(this).toggleClass('expand').nextUntil('tr.expandable').slideToggle(100);
+									<script>
+										$('tr.expand').click(function(){
+											$(this).nextUntil('tr.expand').css('display', function(i,v){
+												return this.style.display === 'table-row' ? 'none' : 'table-row';
 											});
-										}
-										}
+										});
 									</script>
 
 							</article>
