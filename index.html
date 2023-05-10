@@ -11,6 +11,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			 .accordion input[name="collapse"] {
+                display:none; 
+            }
+            .accordion .content {
+                background: rgba(105, 45, 118, 0.9);
+               
+            }
+           .accordion .wrappervideo {
+             display: none; 
+           }
+            .accordion label {
+                color: #fff;
+                cursor: pointer;
+                font-weight: normal;
+                padding: 5px;
+                width:auto; 
+                display:block; 
+            }
+            .accordion label:hover,
+            .accordion label:focus {
+                background: #FFFFFF; 
+                color: #000000; 
+            }
+            .accordion input[name="collapse"]:checked ~ .wrappervideo {
+                display: initial; 
+            }
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -51,50 +79,15 @@
 								<h4>Scrolls</h4>
 								
 								<!-- Table -->
+								<section class="accordion">
 								<div class="table-wrapper">
 									<table class="table" id="myTable">
 										<thead id="cantrip-table-head"></thead>
 										<tbody id="cantrip-table-body"></tbody>
 									</table>
 								</div>
+								</section>
 								<!-- Table -->
-
-								<script>
-									function myFunction() {
-										// Declare variables
-										var input, filter, table, tr, td, i, txtValue;
-										input = document.getElementById("search");
-										filter = input.value.toUpperCase();
-										table = document.getElementById("myTable");
-										tr = table.getElementsByTagName("tr");
-
-										// Loop through all table rows, and hide those who don't match the search query
-										for (i = 0; i < tr.length; i++) {
-											td = tr[i].getElementsByTagName("td")[0];
-											if (td) {
-											txtValue = td.textContent || td.innerText;
-											if (txtValue.toUpperCase().indexOf(filter) > -1) {
-												tr[i].style.display = "";
-											} else {
-												tr[i].style.display = "none";
-											}
-											}
-										}
-										}
-
-										$(function() {
-											$("td[colspan=3]").find("p").hide();
-											$("table").click(function(event) {
-												event.stopPropagation();
-												var $target = $(event.target);
-												if ( $target.closest("td").attr("colspan") > 1 ) {
-													$target.slideUp();
-												} else {
-													$target.closest("tr").next().find("p").slideToggle();
-												}                    
-											});
-										});
-								</script>
 
 								<!-- Creating table -->
 								<script>
@@ -109,7 +102,7 @@
 
 											response.result.values.forEach((row, index) => {
 												if (index === 0) {
-													tableHead += "<tr class='header'>";
+													tableHead += "<tr>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 7) {
 															(tableHead += '<th>' + val + "</th>")
@@ -117,15 +110,16 @@
 													});
 													tableHead += "</tr>";
 												} else {
-													tableBody += "<tr class='header'>";
+													tableBody += "<tr>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 7) {
 															(tableBody += "<td>" + val + "</td>")
 														}
 												});
-													tableBody += "</tr>";
+
+													tableBody += "<td class='handle'><label for='handle1'>Description</label></td></tr>";
 													tableBody += "<tr>";
-													tableBody += "<td colspan='7' id='info'>" + row[7] + "</td>"
+													tableBody += "<td colspan='7' class='content'>" + "<input type='checkbox' name='collapse' id='handle1' />" + row[7] + "</td>"
 													tableBody += "</tr>";
 												}
 											});
