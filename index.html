@@ -11,6 +11,45 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			#search {
+			width: 50%;
+			font-size: 16px;
+			padding: 7px;
+			border: 1px solid #ddd;
+			margin-bottom: 15px;
+			}
+
+			#myTable {
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid #ddd;
+			font-size: 14px;
+			}
+
+			#myTable th, #myTable td {
+			text-align: left; /* Left-align text */
+			padding: 12px; /* Add padding */
+			}
+
+			#myTable tr {
+			/* Add a bottom border to all table rows */
+			border-bottom: 1px solid #ddd;
+			}
+
+			#myTable tr.header, #myTable tr:hover {
+			/* Add a grey background color to the table header and on hover */
+			background-color: #f1f1f1;
+			}
+
+			#myTable td[colspan] {
+			padding-top: 0; padding-bottom: 0;
+			} 
+
+			#myTable td[colspan] p {
+			padding-top: 12px; padding-bottom: 12px;
+			} 
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -52,7 +91,7 @@
 								
 								<!-- Table -->
 								<div class="table-wrapper">
-									<table class="table">
+									<table class="table" id="myTable">
 										<thead id="cantrip-table-head"></thead>
 										<tbody id="cantrip-table-body"></tbody>
 									</table>
@@ -60,16 +99,39 @@
 								<!-- Table -->
 
 								<script>
-									$(document).ready(function() {
-										$('tr:not(.header)').hide();
+									function myFunction() {
+										// Declare variables
+										var input, filter, table, tr, td, i, txtValue;
+										input = document.getElementById("search");
+										filter = input.value.toUpperCase();
+										table = document.getElementById("myTable");
+										tr = table.getElementsByTagName("tr");
 
-										$('tr.header').click(function() {
-											$(this).find('span').text(function(_, value) {
-											return value == '-' ? '+' : '-'
+										// Loop through all table rows, and hide those who don't match the search query
+										for (i = 0; i < tr.length; i++) {
+											td = tr[i].getElementsByTagName("td")[0];
+											if (td) {
+											txtValue = td.textContent || td.innerText;
+											if (txtValue.toUpperCase().indexOf(filter) > -1) {
+												tr[i].style.display = "";
+											} else {
+												tr[i].style.display = "none";
+											}
+											}
+										}
+										}
+
+										$(function() {
+											$("td[colspan=3]").find("p").hide();
+											$("table").click(function(event) {
+												event.stopPropagation();
+												var $target = $(event.target);
+												if ( $target.closest("td").attr("colspan") > 1 ) {
+													$target.slideUp();
+												} else {
+													$target.closest("tr").next().find("p").slideToggle();
+												}                    
 											});
-											
-											$(this).nextUntil('tr.header').slideToggle(100, function() {});
-										});
 										});
 								</script>
 
@@ -86,7 +148,7 @@
 
 											response.result.values.forEach((row, index) => {
 												if (index === 0) {
-													tableHead += "<tr>";
+													tableHead += "<tr class='header'>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 7) {
 															(tableHead += '<th>' + val + "</th>")
@@ -102,7 +164,7 @@
 												});
 													tableBody += "</tr>";
 													tableBody += "<tr>";
-													tableBody += "<td colspan='7'>" + row[7] + "</td>"
+													tableBody += "<td colspan='7' id='info'>" + row[7] + "</td>"
 													tableBody += "</tr>";
 												}
 											});
@@ -504,6 +566,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 			<script src="https://apis.google.com/js/api.js"></script>
 			<script type="text/javascript" src="assets/js/easyData-google-sheets.js"></script>
-			<script src="assets/js/tableaccordian.js"></script>
 	</body>
 </html>
