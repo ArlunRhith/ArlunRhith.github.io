@@ -360,58 +360,58 @@
 
 									<div class="table-wrapper">
 										<!-- Table -->
-										<table class="alt">
-										<thead id="table-head"></thead>
-										<tbody id="table-body"></tbody>
+										<table class="table">
+										<thead id="cantrip-table-head"></thead>
+										<tbody id="cantrip-table-body"></tbody>
 										</table>
 										<!-- Table -->
 									</div>
 
 									<!-- Google API -->
 									<script src="https://apis.google.com/js/api.js"></script>
-									<!-- easyData -->
+									<!-- Data -->
 									<script type="text/javascript" src="assets/js/easyData-google-sheets.js"></script>
 
-									<!-- easyData - Creating table -->
+									<!-- Creating table -->
 									<script>
 										{
 										{
 											// Your API KEY
-											const API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
+											const CANTRIP_API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
 
-											function displayResult2(response) {
-											let tableHead = "";
-											let tableBody = "";
+											function displayCantrips(response) {
+												let tableHead = "";
+												let tableBody = "";
 
-											response.result.values.forEach((row, index) => {
-												if (index === 0) {
-												tableHead += "<tr>";
-												row.forEach((val) => (tableHead += "<th>" + val + "</th>"));
-												tableHead += "</tr>";
-												} else {
-												tableBody += "<tr>";
-												row.forEach((val) => (tableBody += "<td>" + val + "</td>"));
-												tableBody += "</tr>";
-												}
-											});
+												response.result.values.forEach((row, index) => {
+													if (index === 0) {
+													tableHead += "<tr>";
+													row.forEach((val) => (tableHead += "<th>" + val + "</th>"));
+													tableHead += "</tr>";
+													} else {
+													tableBody += "<tr>";
+													row.forEach((val) => (tableBody += "<td>" + val + "</td>"));
+													tableBody += "</tr>";
+													}
+												});
 
-											document.getElementById("table-head").innerHTML = tableHead;
-											document.getElementById("table-body").innerHTML = tableBody;
+												document.getElementById("cantrip-table-head").innerHTML = tableHead;
+												document.getElementById("cantrip-table-body").innerHTML = tableBody;
 											}
 
-											function loadData() {
-											// Spreadsheet ID
-											const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
-											const range = "Cantrips!A1:G";
-											getPublicValues({ spreadsheetId, range }, displayResult2);
+											function loadCantrips() {
+												// Spreadsheet ID
+												const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
+												const range = "Cantrips!A1:G";
+												getPublicValues({ spreadsheetId, range }, displayCantrips);
 											}
 
 											window.addEventListener("load", (e) => {
-											initOAuthClient({ apiKey: API_KEY });
+												initOAuthClient({ apiKey: CANTRIP_API_KEY });
 											});
 
 											document.addEventListener("gapi-loaded", (e) => {
-											loadData();
+												loadCantrips();
 											});
 										}
 										}
