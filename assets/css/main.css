@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1656,3 +1659,31 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* Collapsable */
+
+	/* Style the button that is used to open and close the collapsible content */
+	.collapsible {
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 15px;
+	}
+	
+	/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+	.active, .collapsible:hover {
+		background-color: #ccc;
+	}
+	
+	/* Style the collapsible content. Note: hidden by default */
+	.content {
+		padding: 0 18px;
+		display: none;
+		overflow: hidden;
+		background-color: #f1f1f1;
+	}
