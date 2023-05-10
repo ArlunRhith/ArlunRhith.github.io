@@ -1660,3 +1660,7 @@ input, select, textarea {
 			opacity: 0;
 		}
 		
+tr.header
+{
+	cursor:pointer;
+}
