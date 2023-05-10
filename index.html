@@ -97,10 +97,10 @@
 													tableBody += "<tr class='header'>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 7) {
-															(tableBody += "<td>" + val + "</td>")
+															(tableBody += "<td>" + val + " <span>-</span></td>")
 														}
 												});
-													tableBody += "<span>-</span></tr>";
+													tableBody += "</tr>";
 													tableBody += "<tr>";
 													tableBody += "<td colspan='7'>" + row[7] + "</td>"
 													tableBody += "</tr>";
