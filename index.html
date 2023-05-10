@@ -342,7 +342,7 @@
 												response.result.values.forEach((row, index) => {
 													if (index === 0) {
 														tableHead += "<tr>";
-														row.forEach((val, val2) => (tableHead += "<th>" + val + val2 + "</th>"));
+														row.forEach((val, val2) => (tableHead += "<th>" + val2 + "</th>"));
 														tableHead += "</tr>";
 													} else {
 														tableBody += "<tr>";
