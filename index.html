@@ -280,7 +280,7 @@
 
 									<div class="table-wrapper">
 										<!-- Table -->
-										<table class="table jAccordionTable table-striped table-sm table-hover table-bordered">
+										<table class="jAccordionTable table table-hover" data-page-size="6" data-page-navigation=".pagination" data-limit-navigation="5">
 										<thead id="cantrip-table-head"></thead>
 										<tbody id="cantrip-table-body"></tbody>
 										</table>
@@ -308,7 +308,7 @@
 														tableHead += "<tr>";
 														row.forEach((val, rowindex) => {
 															if (rowindex < 6) {
-																(tableHead += "<th>" + val + "</th>")
+																(tableHead += "<th data-sort='string'>" + val + "</th>")
 															}
 														});
 														tableHead += "</tr>";
