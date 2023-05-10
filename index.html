@@ -60,11 +60,11 @@
 								<!-- Table -->
 
 								<script>
-									$('tr').hide().filter(function () {
-										return $(this).find('td[colspan]').length;
-									}).addClass('header').css('display', 'table-row').click(function () {
-										$(this).nextUntil('tr.header').css('display', function (i, v) {
-											return this.style.display === 'table-row' ? 'none' : 'table-row';
+									$(document).ready(function(){
+										$('tr.header').click(function(){
+											$(this).find('span').text(function(_, value){return value=='-'?'+':'-'});
+											$(this).nextUntil('tr.header').slideToggle(100, function(){
+											});
 										});
 									});
 								</script>
@@ -143,23 +143,10 @@
 								</div>
 								<!-- Table -->
 
-								<script>
-									$('tr').hide().filter(function () {
-										return $(this).find('td[colspan]').length;
-									}).addClass('header').css('display', 'table-row').click(function () {
-										$(this).nextUntil('tr.header').css('display', function (i, v) {
-											return this.style.display === 'table-row' ? 'none' : 'table-row';
-										});
-									});
-								</script>
-
 								<!-- Creating table -->
 								<script>
 									{
 									{
-										// Your API KEY
-										const CANTRIP_API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
-
 										function displayFirstLevel(response) {
 											let tableHead = "";
 											let tableBody = "";
@@ -197,10 +184,6 @@
 											const range = "Level 1!A1:H";
 											getPublicValues({ spreadsheetId, range }, displayFirstlevel);
 										}
-
-										window.addEventListener("load", (e) => {
-											initOAuthClient({ apiKey: CANTRIP_API_KEY });
-										});
 
 										document.addEventListener("gapi-loaded", (e) => {
 											loadFirstlevel();
