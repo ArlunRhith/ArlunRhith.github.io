@@ -69,66 +69,61 @@
 									});
 								</script>
 
-									<!-- Google API -->
-									<script src="https://apis.google.com/js/api.js"></script>
-									<!-- Data -->
-									<script type="text/javascript" src="assets/js/easyData-google-sheets.js"></script>
+								<!-- Creating table -->
+								<script>
+									{
+									{
+										// Your API KEY
+										const CANTRIP_API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
 
-									<!-- Creating table -->
-									<script>
-										{
-										{
-											// Your API KEY
-											const CANTRIP_API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
+										function displayCantrips(response) {
+											let tableHead = "";
+											let tableBody = "";
 
-											function displayCantrips(response) {
-												let tableHead = "";
-												let tableBody = "";
-
-												response.result.values.forEach((row, index) => {
-													if (index === 0) {
-														tableHead += "<tr>";
-														row.forEach((val, rowindex) => {
-															if (rowindex < 7) {
-																(tableHead += '<th>' + val + "</th>")
-															}
-														});
-														tableHead += "</tr>";
-													} else {
-														tableBody += "<tr class='header'>";
-														row.forEach((val, rowindex) => {
-															if (rowindex < 7) {
-																(tableBody += "<td>" + val + "</td>")
-															}
+											response.result.values.forEach((row, index) => {
+												if (index === 0) {
+													tableHead += "<tr>";
+													row.forEach((val, rowindex) => {
+														if (rowindex < 7) {
+															(tableHead += '<th>' + val + "</th>")
+														}
 													});
-														tableBody += "</tr>";
-														tableBody += "<tr>";
-														tableBody += "<td colspan='7'>" + row[7] + "</td>"
-														tableBody += "</tr>";
-													}
+													tableHead += "</tr>";
+												} else {
+													tableBody += "<tr class='header'>";
+													row.forEach((val, rowindex) => {
+														if (rowindex < 7) {
+															(tableBody += "<td>" + val + "</td>")
+														}
 												});
-
-												document.getElementById("cantrip-table-head").innerHTML = tableHead;
-												document.getElementById("cantrip-table-body").innerHTML = tableBody;
-											}
-
-											function loadCantrips() {
-												// Spreadsheet ID
-												const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
-												const range = "Cantrips!A1:H";
-												getPublicValues({ spreadsheetId, range }, displayCantrips);
-											}
-
-											window.addEventListener("load", (e) => {
-												initOAuthClient({ apiKey: CANTRIP_API_KEY });
+													tableBody += "</tr>";
+													tableBody += "<tr>";
+													tableBody += "<td colspan='7'>" + row[7] + "</td>"
+													tableBody += "</tr>";
+												}
 											});
 
-											document.addEventListener("gapi-loaded", (e) => {
-												loadCantrips();
-											});
+											document.getElementById("cantrip-table-head").innerHTML = tableHead;
+											document.getElementById("cantrip-table-body").innerHTML = tableBody;
 										}
+
+										function loadCantrips() {
+											// Spreadsheet ID
+											const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
+											const range = "Cantrips!A1:H";
+											getPublicValues({ spreadsheetId, range }, displayCantrips);
 										}
-									</script>
+
+										window.addEventListener("load", (e) => {
+											initOAuthClient({ apiKey: CANTRIP_API_KEY });
+										});
+
+										document.addEventListener("gapi-loaded", (e) => {
+											loadCantrips();
+										});
+									}
+									}
+								</script>
 
 							</article>
 
@@ -138,6 +133,81 @@
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
 								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+								
+								<!-- Table -->
+								<div class="table-wrapper">
+									<table class="table">
+										<thead id="firstlevel-table-head"></thead>
+										<tbody id="firstlevel-table-body"></tbody>
+									</table>
+								</div>
+								<!-- Table -->
+
+								<script>
+									$('tr').hide().filter(function () {
+										return $(this).find('td[colspan]').length;
+									}).addClass('header').css('display', 'table-row').click(function () {
+										$(this).nextUntil('tr.header').css('display', function (i, v) {
+											return this.style.display === 'table-row' ? 'none' : 'table-row';
+										});
+									});
+								</script>
+
+								<!-- Creating table -->
+								<script>
+									{
+									{
+										// Your API KEY
+										const CANTRIP_API_KEY = "AIzaSyAUMyNVExwRfDwfJF4PkiqVy7syJVLna-0";
+
+										function displayFirstLevel(response) {
+											let tableHead = "";
+											let tableBody = "";
+
+											response.result.values.forEach((row, index) => {
+												if (index === 0) {
+													tableHead += "<tr>";
+													row.forEach((val, rowindex) => {
+														if (rowindex < 7) {
+															(tableHead += '<th>' + val + "</th>")
+														}
+													});
+													tableHead += "</tr>";
+												} else {
+													tableBody += "<tr class='header'>";
+													row.forEach((val, rowindex) => {
+														if (rowindex < 7) {
+															(tableBody += "<td>" + val + "</td>")
+														}
+												});
+													tableBody += "</tr>";
+													tableBody += "<tr>";
+													tableBody += "<td colspan='7'>" + row[7] + "</td>"
+													tableBody += "</tr>";
+												}
+											});
+
+											document.getElementById("firstlevel-table-head").innerHTML = tableHead;
+											document.getElementById("firstlevel-table-body").innerHTML = tableBody;
+										}
+
+										function loadFirstlevel() {
+											// Spreadsheet ID
+											const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
+											const range = "Level 1!A1:H";
+											getPublicValues({ spreadsheetId, range }, displayFirstlevel);
+										}
+
+										window.addEventListener("load", (e) => {
+											initOAuthClient({ apiKey: CANTRIP_API_KEY });
+										});
+
+										document.addEventListener("gapi-loaded", (e) => {
+											loadFirstlevel();
+										});
+									}
+									}
+								</script>
 							</article>
 
 						<!-- About -->
@@ -438,6 +508,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://apis.google.com/js/api.js"></script>
+			<script type="text/javascript" src="assets/js/easyData-google-sheets.js"></script>
 			<script src="assets/js/tableaccordian.js"></script>
 	</body>
 </html>
