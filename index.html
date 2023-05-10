@@ -137,8 +137,8 @@
 								<!-- Table -->
 								<div class="table-wrapper">
 									<table class="table">
-										<thead id="firstlevel-table-head"></thead>
-										<tbody id="firstlevel-table-body"></tbody>
+										<thead id="first-table-head"></thead>
+										<tbody id="first-table-body"></tbody>
 									</table>
 								</div>
 								<!-- Table -->
@@ -147,7 +147,10 @@
 								<script>
 									{
 									{
-										function displayFirstLevel(response) {
+										// Your API KEY
+										const FIRST_API_KEY = "AIzaSyCkB9FXv3AekK6ZkGfYpFQ3GhOwmBkQeis";
+
+										function displayFirst(response) {
 											let tableHead = "";
 											let tableBody = "";
 
@@ -174,19 +177,23 @@
 												}
 											});
 
-											document.getElementById("firstlevel-table-head").innerHTML = tableHead;
-											document.getElementById("firstlevel-table-body").innerHTML = tableBody;
+											document.getElementById("first-table-head").innerHTML = tableHead;
+											document.getElementById("first-table-body").innerHTML = tableBody;
 										}
 
-										function loadFirstlevel() {
+										function loadFirst() {
 											// Spreadsheet ID
 											const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
 											const range = "Level 1!A1:H";
-											getPublicValues({ spreadsheetId, range }, displayFirstlevel);
+											getPublicValues({ spreadsheetId, range }, displayFirst);
 										}
 
+										window.addEventListener("load", (e) => {
+											initOAuthClient({ apiKey: FIRST_API_KEY });
+										});
+
 										document.addEventListener("gapi-loaded", (e) => {
-											loadFirstlevel();
+											loadFirst();
 										});
 									}
 									}
