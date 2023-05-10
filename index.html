@@ -306,26 +306,6 @@
 												response.result.values.forEach((row, index) => {
 													if (index === 0) {
 														tableHead += "<tr>";
-														row.forEach((val) => (tableHead += "<th>" + val + "</th>"));
-														tableHead += "</tr>";
-													} else {
-														tableBody += "<tr>";
-														row.forEach((val) => (tableBody += "<td>" + val + "</td>"));
-														tableBody += "</tr>";
-													}
-												});
-
-												document.getElementById("cantrip-table-head").innerHTML = tableHead;
-												document.getElementById("cantrip-table-body").innerHTML = tableBody;
-											}
-
-											function displayCantripDescriptions(response) {
-												let tableHead = "";
-												let tableBody = "";
-
-												response.result.values.forEach((row, index) => {
-													if (index === 0) {
-														tableHead += "<tr>";
 														row.forEach((val, rowindex) => {
 															if (rowindex < 6) {
 																(tableHead += "<th>" + val + "</th>")
