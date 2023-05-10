@@ -342,7 +342,7 @@
 												response.result.values.forEach((row, index) => {
 													if (index === 0) {
 														tableHead += "<tr>";
-														row.forEach((val, val2) => (tableHead += "<th>" + val2 + "</th>"));
+														row.forEach((val) => (tableHead += "<th>" + val + "</th>"));
 														tableHead += "</tr>";
 													} else {
 														tableBody += "<tr>";
@@ -355,10 +355,45 @@
 												document.getElementById("cantrip-table-body").innerHTML = tableBody;
 											}
 
+											function displayCantripDescriptions(response) {
+												let tableHead = "";
+												let tableBody = "";
+
+												response.result.values.forEach((row, index) => {
+													if (index === 0) {
+														tableHead += "<tr>";
+														row.forEach((val, rowindex) => {
+															if (rowindex < 6) {
+																(tableHead += "<th>" + val + "</th>")
+															}
+														});
+														tableHead += "</tr>";
+													} else {
+														tableBody += "<tr>";
+														row.forEach((val, rowindex) => {
+															if (rowindex < 6) {
+																(tableBody += "<td>" + val + "</td>")
+															}
+													});
+														tableBody += "</tr>";
+														tableBody += "<tr class='collapse'>";
+														row.forEach((val, rowindex) => {
+															if (rowindex === 6) {
+																(tableBody += "<td colspan='7'>" + val + "</td>")
+															}
+													});
+														tableBody += "</tr>";
+													}
+												});
+
+												document.getElementById("cantrip-table-head").innerHTML = tableHead;
+												document.getElementById("cantrip-table-body").innerHTML = tableBody;
+											}
+
 											function loadCantrips() {
 												// Spreadsheet ID
 												const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
-												const range = "Cantrips!A1:G";
+												const range = "Cantrips!A1:H";
 												getPublicValues({ spreadsheetId, range }, displayCantrips);
 											}
 
