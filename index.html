@@ -307,23 +307,23 @@
 													if (index === 0) {
 														tableHead += "<tr>";
 														row.forEach((val, rowindex) => {
-															if (rowindex < 6) {
-																(tableHead += "<th data-sort='string'>" + val + "</th>")
+															if (rowindex < 7) {
+																(tableHead += '<th data-sort="string">' + val + "</th>")
 															}
 														});
 														tableHead += "</tr>";
 													} else {
 														tableBody += "<tr>";
 														row.forEach((val, rowindex) => {
-															if (rowindex < 6) {
+															if (rowindex < 7) {
 																(tableBody += "<td>" + val + "</td>")
 															}
 													});
 														tableBody += "</tr>";
 														tableBody += "<tr class='collapse'>";
 														row.forEach((val, rowindex) => {
-															if (rowindex === 6) {
-																(tableBody += "<td colspan='7'>" + val + "</td>")
+															if (rowindex === 7) {
+																(tableBody += '<td colspan="7">' + val + "</td>")
 															}
 													});
 														tableBody += "</tr>";
