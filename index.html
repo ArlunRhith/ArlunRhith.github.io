@@ -61,8 +61,8 @@
 								<li><a href="#cantrips">Cantrips</a></li>
 								<li><a href="#1stlevel">1st Level</a></li>
 								<li><a href="#2ndlevel">2nd Level</a></li>
-								<li><a href="#3rdlevel">3rd Level</a></li>
-								<li><a href="#elements">Elements</a></li>
+								<!--<li><a href="#3rdlevel">3rd Level</a></li>
+								<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -108,7 +108,7 @@
 														}
 													});
 													tableHead += "</tr>";
-												} else if (row[1] !== "#N/A") {
+												} else if (row[9] !== "undefined") {
 													tableBody += "<tr>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 9) {
@@ -183,7 +183,7 @@
 														}
 													});
 													tableHead += "</tr>";
-												} else if (row[1] !== "#N/A") {
+												} else if (row[9] !== "undefined") {
 													tableBody += "<tr>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 9) {
@@ -255,7 +255,7 @@
 														}
 													});
 													tableHead += "</tr>";
-												} else if (row[1] !== "#N/A") {
+												} else if (row[9] !== "undefined") {
 													tableBody += "<tr>";
 													row.forEach((val, rowindex) => {
 														if (rowindex < 9) {
