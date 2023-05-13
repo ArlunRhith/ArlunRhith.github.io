@@ -644,6 +644,7 @@ input, select, textarea {
 		position: relative;
 	}
 
+
 		.image:before {
 			pointer-events: none;
 			background-image: url("../../images/overlay2.jpg");
