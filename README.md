@@ -1,1 +1,1 @@
-# Thaumaturgy by Thada
+# The Sponsor of Scholars
