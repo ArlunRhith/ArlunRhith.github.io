@@ -200,7 +200,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 										let tableBody = "";
 
 										response.result.values.forEach((row, index) => {
-											if (index === 0) {
+											if (index <= 1) {
 												tableHead += "<tr>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 17) {
