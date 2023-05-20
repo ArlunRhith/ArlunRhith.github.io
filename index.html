@@ -203,21 +203,21 @@ First level spells, dear companion, are the building blocks of our magical reper
 											if (index === 0) {
 												tableHead += "<tr>";
 												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
+													if (rowindex < 17) {
 														(tableHead += '<th>' + val + "</th>")
 													}
 												});
 												tableHead += "</tr>";
-											} else if (typeof row[9] !== "undefined") {
+											} else if (typeof row[17] !== "undefined") {
 												tableBody += "<tr>";
 												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
+													if (rowindex < 17) {
 														(tableBody += "<td>" + val + "</td>")
 													}
 											});
 												tableBody += "</tr>";
 												tableBody += "<tr>";
-												tableBody += "<td colspan='9'>" + row[9] + "</td>"
+												tableBody += "<td colspan='17'>" + row[17] + "</td>"
 												tableBody += "</tr>";
 											}
 										});
