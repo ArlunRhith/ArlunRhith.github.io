@@ -272,25 +272,25 @@ First level spells, dear companion, are the building blocks of our magical reper
 										let tableBody = "";
 
 										response.result.values.forEach((row, index) => {
-											if (index === 0) {
+											if (index <= 1) {
 												tableHead += "<tr>";
 												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
+													if (rowindex < 16) {
 														(tableHead += '<th>' + val + "</th>")
 													}
 												});
 												tableHead += "</tr>";
-											} else if (typeof row[9] !== "undefined") {
+											} else {
 												tableBody += "<tr>";
 												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
+													if (rowindex < 16) {
 														(tableBody += "<td>" + val + "</td>")
 													}
 											});
 
 												tableBody += "<td></tr>";
 												tableBody += "<tr>";
-												tableBody += "<td colspan='9'>" + row[9] + "</td>"
+												tableBody += "<td colspan='16'>" + row[16] + "</td>"
 												tableBody += "</tr>";
 											}
 										});
@@ -302,7 +302,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 									function loadSecond() {
 										// Spreadsheet ID
 										const spreadsheetId = "1igmXqUyzz3EpP5mOPrDvbxSgrBIKFJ-x1huj-dWaH-w";
-										const range = "2nd Level!A1:J";
+										const range = "2nd Level!A1:Q";
 										getPublicValues({ spreadsheetId, range }, displaySecond);
 									}
 
