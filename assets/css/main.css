@@ -939,7 +939,6 @@ input, select, textarea {
 	table {
 		margin: 0 0 2rem 0;
 		width: 100%;
-		white-space: nowrap;
 	}
 
 		table tbody tr {
@@ -962,6 +961,7 @@ input, select, textarea {
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;
+			min-width: 100px;
 		}
 
 		table thead {
