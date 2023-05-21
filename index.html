@@ -298,14 +298,14 @@ First level spells, dear companion, are the building blocks of our magical reper
 											} else {
 												tableBody += "<tr class='view'>";
 												row.forEach((val, rowindex) => {
-													if (rowindex < 16) {
+													if (rowindex < 15) {
 														(tableBody += "<td>" + val + "</td>")
 													}
 											});
 
 												tableBody += "<td></tr>";
 												tableBody += "<tr class='panel'>";
-												tableBody += "<td colspan='16'>" + row[16] + "</td>"
+												tableBody += "<td colspan='15'>" + row[16] + <br><br> "*" + row[15] + "</td>"
 												tableBody += "</tr>";
 											}
 										});
