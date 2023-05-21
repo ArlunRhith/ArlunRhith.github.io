@@ -214,7 +214,10 @@ First level spells, dear companion, are the building blocks of our magical reper
 									}
 									
 									var firstview = document.getElementsByClassName("first-level-view");
-									firstview.addEventListener("click", function() {
+									var i;
+									
+									for (i = 0; i < acc.length; i++) {
+									firstview[i].addEventListener("click", function() {
     										this.classList.toggle("active");
     										var panel = this.nextElementSibling;
     											if (panel.style.display === "block") {
@@ -223,6 +226,7 @@ First level spells, dear companion, are the building blocks of our magical reper
       												panel.style.display = "block";
     											}
  									});
+									}
 
 									function loadFirst() {
 										// Spreadsheet ID
