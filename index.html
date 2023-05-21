@@ -11,63 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script>
-table.fold-table > tbody > tr.view td, table.fold-table > tbody > tr.view th {
-  cursor: pointer;
-}
-table.fold-table > tbody > tr.view td:first-child,
-table.fold-table > tbody > tr.view th:first-child {
-  position: relative;
-  padding-left: 20px;
-}
-			
-table.fold-table > tbody > tr.view td:first-child:before,
-table.fold-table > tbody > tr.view th:first-child:before {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  width: 9px;
-  height: 16px;
-  margin-top: -8px;
-  font: 16px fontawesome;
-  color: #999;
-  content: "";
-  transition: all 0.3s ease;
-}
-			table.fold-table > tbody > tr.view:nth-child(4n-1) {
-  background: #eee;
-}
-table.fold-table > tbody > tr.view:hover {
-  background: #000;
-}
-table.fold-table > tbody > tr.view.open {
-  background: tomato;
-  color: white;
-}
-			table.fold-table > tbody > tr.view.open td:first-child:before, table.fold-table > tbody > tr.view.open th:first-child:before {
-  transform: rotate(-180deg);
-  color: #333;
-}
-table.fold-table > tbody > tr.fold {
-  display: none;
-}
-table.fold-table > tbody > tr.fold.open {
-  display: table-row;
-}
-			
-			.fold-content {
-  padding: 0.5em;
-}
-.fold-content h3 {
-  margin-top: 0;
-}
-.fold-content > table {
-  border: 2px solid #ccc;
-}
-.fold-content > table > tbody tr:nth-child(even) {
-  background: #eee;
-}
-</script>
+
 	</head>
 	<body class="is-preload">
 
@@ -210,7 +154,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 							<h4>Available First Level Spell Scrolls</h4>
 							<!-- Table -->
 							<div class="table-wrapper">
-								<table class="fold-table">
+								<table>
 									<thead id="first-table-head"></thead>
 									<tbody id="first-table-body"></tbody>
 								</table>
@@ -219,11 +163,6 @@ First level spells, dear companion, are the building blocks of our magical reper
 
 							<!-- Creating table -->
 							<script>
-								$(function(){
-  									$(".fold-table tr.view").on("click", function(){
-    									$(this).toggleClass("open").next(".fold").toggleClass("open");
-  									});
-								});
 								{
 								{
 									// Your API KEY
@@ -243,15 +182,15 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr class='view'>";
+												tableBody += "<tr>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 16) {
 														(tableBody += "<td>" + val + "</td>")
 													}
 											});
 												tableBody += "</tr>";
-												tableBody += "<tr class='fold'>";
-												tableBody += "<td colspan='16'><div class='fold-content'>" + row[16] + "</div></td>"
+												tableBody += "<tr>";
+												tableBody += "<td colspan='16'>" + row[16] + "</td>"
 												tableBody += "</tr>";
 											}
 										});
@@ -286,7 +225,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 							<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
 							<!-- Table -->
 							<div class="table-wrapper">
-								<table class="fold-table">
+								<table>
 									<thead id="second-table-head"></thead>
 									<tbody id="second-table-body"></tbody>
 								</table>
@@ -315,7 +254,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr class='view'>";
+												tableBody += "<tr>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 16) {
 														(tableBody += "<td>" + val + "</td>")
@@ -323,8 +262,8 @@ First level spells, dear companion, are the building blocks of our magical reper
 											});
 
 												tableBody += "<td></tr>";
-												tableBody += "<tr class='fold'>";
-												tableBody += "<td colspan='16'><div class='fold-content'>" + row[16] + "</div></td>"
+												tableBody += "<tr>";
+												tableBody += "<td colspan='16'>" + row[16] + "</td>"
 												tableBody += "</tr>";
 											}
 										});
@@ -696,7 +635,6 @@ First level spells, dear companion, are the building blocks of our magical reper
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="assets/js/browser.min.js"></script>
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
