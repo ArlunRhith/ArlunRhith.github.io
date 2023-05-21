@@ -306,7 +306,8 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr class='view'>";
+												tableBody += "<tr>";
+												tableBody += "<button class='view'>"
 												row.forEach((val, rowindex) => {
 													if (rowindex < 15) {
 														if (rowindex === 14) {
@@ -321,13 +322,16 @@ First level spells, dear companion, are the building blocks of our magical reper
 														(tableBody += "<td>" + val + "</td>")
 													}
 											});
+												
+												tableBody += "</button></tr>";
+												
 												if (row[15] != "") {
-													var materialcomponent = "<br>*" + row[15]
+													var materialcomponent = "<p>*" + row[15] + "</p>"
 												} else {
-													var materialcomponent = row[15]
+													var materialcomponent = ""
 												}
 
-												tableBody += "<td></tr>";
+												
 												tableBody += "<tr>";
 												tableBody += "<td colspan='15'>" + "<div  class='panel'>" + row[16] + materialcomponent + "</div>" + "</td>"
 												tableBody += "</tr>";
