@@ -8,6 +8,7 @@
 	<head>
 		<title>The Sponsor of Scholars</title>
 		<meta charset="utf-8" />
+		 <link rel="icon" type="image/x-icon" href="favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -215,6 +216,8 @@ First level spells, dear companion, are the building blocks of our magical reper
 												
 												if (row[15] != "") {
 													var materialcomponent = "<br>*" + row[15]
+												} else {
+													var materialcomponent = row[15]
 												}
 												
 												tableBody += "</tr>";
@@ -318,7 +321,9 @@ First level spells, dear companion, are the building blocks of our magical reper
 											});
 												if (row[15] != "") {
 													var materialcomponent = "<br>*" + row[15]
-												}	
+												} else {
+													var materialcomponent = row[15]
+												}
 
 												tableBody += "<td></tr>";
 												tableBody += "<tr class='panel'>";
