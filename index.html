@@ -116,27 +116,13 @@
 										let tableBody = "";
 
 										response.result.values.forEach((row, index) => {
-											if (index === 0) {
+											if (index <= 3) {
 												tableHead += "<tr>";
 												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
-														(tableHead += '<th>' + val + "</th>")
-													}
+													(tableHead += '<th>' + val + "</th>")
 												});
 												tableHead += "</tr>";
-											} else if (typeof row[9] !== "undefined") {
-												tableBody += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
-														(tableBody += "<td>" + val + "</td>")
-													}
-											});
-
-												tableBody += "<td></tr>";
-												tableBody += "<tr>";
-												tableBody += "<td colspan='9'>" + row[9] + "</td>"
-												tableBody += "</tr>";
-											}
+											} 
 										});
 
 										document.getElementById("prices-table-head").innerHTML = tableHead;
