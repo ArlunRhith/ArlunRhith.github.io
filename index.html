@@ -214,12 +214,15 @@ First level spells, dear companion, are the building blocks of our magical reper
 									document.addEventListener("gapi-loaded", (e) => {
 										loadFirst();
 									});
-									
-								function accordionTable(i,elem) {
-  var table = $(elem),
-      tbody = table.find('tbody'),
-      th_index = 0,
-      th_sortType = "string";
+								}
+								}
+							</script>
+							<script>
+								{
+									{
+function accordionTable(i,elem) {
+var table = $(elem),
+      tbody = table.find('tbody');
 
   //accordion on tbody > tr
   tbody.find('tr:first').addClass('table-acc-header');
@@ -228,23 +231,9 @@ First level spells, dear companion, are the building blocks of our magical reper
     table.find('.table-acc-body').addClass('collapse');
     $(this).next('.table-acc-body').removeClass('collapse');
   });
-
-  function mapTDs(i, elem){
-    var txt = $("td", elem).eq(th_index).text();
-    $(elem).attr("data-sortval", txt);
-  }
-  function sortAsc(a, b){
-    var aData = $(a).attr("data-sortval"),
-        bData = $(b).attr("data-sortval");
-    if(th_sortType==="int"){ 
-      return +bData < +aData ? 1 : -1; // Integer
-    }else{   
-      return  bData <  aData ? 1 : -1; // String or else
-    }
-  }
-								}
-								}
-							</script>
+}
+									}
+</script>
 						</article>
 
 						<!-- Second Level Spells -->	
