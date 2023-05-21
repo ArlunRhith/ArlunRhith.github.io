@@ -286,7 +286,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 							<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
 							<!-- Table -->
 							<div class="table-wrapper">
-								<table>
+								<table class="fold-table">
 									<thead id="second-table-head"></thead>
 									<tbody id="second-table-body"></tbody>
 								</table>
@@ -315,7 +315,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr>";
+												tableBody += "<tr class='view'>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 16) {
 														(tableBody += "<td>" + val + "</td>")
@@ -323,8 +323,8 @@ First level spells, dear companion, are the building blocks of our magical reper
 											});
 
 												tableBody += "<td></tr>";
-												tableBody += "<tr>";
-												tableBody += "<td colspan='16'>" + row[16] + "</td>"
+												tableBody += "<tr class='fold'>";
+												tableBody += "<td colspan='16'><div class='fold-content'>" + row[16] + "</div></td>"
 												tableBody += "</tr>";
 											}
 										});
