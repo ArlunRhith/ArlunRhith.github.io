@@ -8,7 +8,7 @@
 	<head>
 		<title>The Sponsor of Scholars</title>
 		<meta charset="utf-8" />
-		 <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -24,7 +24,7 @@
 			}
 
 			.panel {
-				height: 0;
+				max-height: 0;
   				overflow: hidden;
   				transition: display 0.2s ease-out;
 			}
@@ -328,8 +328,8 @@ First level spells, dear companion, are the building blocks of our magical reper
 												}
 
 												tableBody += "<td></tr>";
-												tableBody += "<tr class='panel'>";
-												tableBody += "<td colspan='15'>" + row[16] + materialcomponent + "</td>"
+												tableBody += "<tr>";
+												tableBody += "<td colspan='15'>" + "<div  class='panel'>" + row[16] + materialcomponent + "</div>" + "</td>"
 												tableBody += "</tr>";
 											}
 										});
@@ -345,10 +345,10 @@ First level spells, dear companion, are the building blocks of our magical reper
     												this.classList.toggle("active");
     												var panel = this.nextElementSibling;
 												
-    												if (panel.style.height) {
-													panel.style.height = 0;
+    												if (panel.style.Maxheight) {
+													panel.style.Maxheight = null;
 												} else {
-													panel.style.height = panel.scrollHeight + "px";
+													panel.style.Maxheight = panel.scrollHeight + "px";
 												} 
  											});
 										}
