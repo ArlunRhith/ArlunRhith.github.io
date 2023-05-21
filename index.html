@@ -220,10 +220,10 @@ First level spells, dear companion, are the building blocks of our magical reper
 											cview[i].addEventListener("click", function() {
     												this.classList.toggle("active");
     												var panel = this.nextElementSibling;
-    												if (panel.style.display === "block") {
+    												if (panel.style.display === "table-row") {
       													panel.style.display = "none";
     												} else {
-      													panel.style.display = "block";
+      													panel.style.display = "table-row";
     												}
  											});
 										}
