@@ -23,7 +23,6 @@
 
 			.panel {
   				display: none;
-  				overflow: hidden;
 			}
 		</style>
 	</head>
@@ -209,13 +208,13 @@ First level spells, dear companion, are the building blocks of our magical reper
 												
 											}
 										});
-										
-										var firstview = document.getElementsByClassName("first-level-view");
 
 										document.getElementById("first-table-head").innerHTML = tableHead;
 										document.getElementById("first-table-body").innerHTML = tableBody;
-										
-										firstview.addEventListener("click", function() {
+									}
+									
+									var firstview = document.getElementsByClassName("first-level-view");
+									firstview.addEventListener("click", function() {
     										this.classList.toggle("active");
     										var panel = this.nextElementSibling;
     											if (panel.style.display === "block") {
@@ -223,9 +222,7 @@ First level spells, dear companion, are the building blocks of our magical reper
     											} else {
       												panel.style.display = "block";
     											}
- 										});
-									}
-									
+ 									});
 
 									function loadFirst() {
 										// Spreadsheet ID
