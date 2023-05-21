@@ -13,15 +13,10 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 .accordion {
-  background-color: #eee;
-  color: #444;
   cursor: pointer;
-  padding: 18px;
   width: 100%;
   border: none;
-  text-align: left;
   outline: none;
-  font-size: 15px;
   transition: 0.4s;
 }
 
@@ -31,8 +26,6 @@
 
 .accordion:after {
   content: '\002B';
-  color: #777;
-  font-weight: bold;
   float: right;
   margin-left: 5px;
 }
@@ -43,7 +36,6 @@
 
 .panel {
   padding: 0 18px;
-  background-color: white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -226,9 +218,9 @@ First level spells, dear companion, are the building blocks of our magical reper
 													}
 											});
 												tableBody += "</tr>";
-												tableBody += "<tr>";
-												tableBody += "<td colspan='16'><div class='panel'>" + row[16] + "</div></td>"
-												tableBody += "</tr>";
+												tableBody += "<div class='panel'><tr>";
+												tableBody += "<td colspan='16'>" + row[16] + "</td>"
+												tableBody += "</tr></div>";
 											}
 										});
 
