@@ -213,21 +213,6 @@ First level spells, dear companion, are the building blocks of our magical reper
 										document.getElementById("first-table-head").innerHTML = tableHead;
 										document.getElementById("first-table-body").innerHTML = tableBody;
 									}
-									
-									var firstview = document.getElementsByClassName("first-level-view");
-									var i;
-									
-									for (i = 0; i < acc.length; i++) {
-									firstview[i].addEventListener("click", function() {
-    										this.classList.toggle("active");
-    										var panel = this.nextElementSibling;
-    											if (panel.style.display === "block") {
-      												panel.style.display = "none";
-    											} else {
-      												panel.style.display = "block";
-    											}
- 									});
-									}
 
 									function loadFirst() {
 										// Spreadsheet ID
@@ -243,6 +228,21 @@ First level spells, dear companion, are the building blocks of our magical reper
 									document.addEventListener("gapi-loaded", (e) => {
 										loadFirst();
 									});
+									
+									var firstview = document.getElementsByClassName("first-level-view");
+									var i;
+									
+									for (i = 0; i < acc.length; i++) {
+									firstview[i].addEventListener("click", function() {
+    										this.classList.toggle("active");
+    										var panel = this.nextElementSibling;
+    											if (panel.style.display === "block") {
+      												panel.style.display = "none";
+    											} else {
+      												panel.style.display = "block";
+    											}
+ 									});
+									}
 								}
 								}
 							</script>
