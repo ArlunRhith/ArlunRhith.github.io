@@ -21,7 +21,7 @@
 				border-left: 0;
 				border-right: 0;
 
-				&:nth-child(2n + 2) {
+				&:nth-child(3n + 2) {
 					background-color: _palette(border-bg);
 				}
 			}
