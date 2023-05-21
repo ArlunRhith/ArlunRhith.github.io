@@ -11,6 +11,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.view {
+  				cursor: pointer;
+  				transition: 0.4s;
+			}
+
+			.active, .view:hover {
+  				background-color: #ccc; 
+			}
+
+			.panel {
+  				display: none;
+  				overflow: hidden;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -170,6 +185,8 @@ First level spells, dear companion, are the building blocks of our magical reper
 									function displayFirst(response) {
 										let tableHead = "";
 										let tableBody = "";
+										
+										var firstview = document.getElementsByClassName("first-level-view");
 
 										response.result.values.forEach((row, index) => {
 											if (index <= 1) {
@@ -181,22 +198,34 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr>";
+												tableBody += "<tr class='first-level-view'>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 16) {
 														(tableBody += "<td>" + val + "</td>")
 													}
 											});
 												tableBody += "</tr>";
-												tableBody += "<tr display='none' overflow='hidden'>";
+												tableBody += "<tr class='panel' display='none' overflow='hidden'>";
 												tableBody += "<td colspan='16'>" + row[16] + "</td>"
 												tableBody += "</tr>";
 											}
 										});
+										
+										firstview.addEventListener("click", function() {
+    											this.classList.toggle("active");
+    											var panel = this.nextElementSibling;
+    											if (panel.style.display === "block") {
+      												panel.style.display = "none";
+    											} else {
+      												panel.style.display = "block";
+    											}
+ 										});
 
 										document.getElementById("first-table-head").innerHTML = tableHead;
 										document.getElementById("first-table-body").innerHTML = tableBody;
 									}
+									
+									var firstview = document.getElementsByClassName("first-level-view");
 
 									function loadFirst() {
 										// Spreadsheet ID
