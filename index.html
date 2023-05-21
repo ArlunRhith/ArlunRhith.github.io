@@ -180,6 +180,21 @@ First level spells, dear companion, are the building blocks of our magical reper
 
 							<!-- Creating table -->
 							<script>
+								var acc = document.getElementsByClassName("accordion");
+								var i;
+
+								for (i = 0; i < acc.length; i++) {
+  									acc[i].addEventListener("click", function() {
+   									this.classList.toggle("active");
+    									var panel = this.nextElementSibling;
+    									if (panel.style.display === "block") {
+      									panel.style.display = "none";
+    									} else {
+      									panel.style.display = "block";
+    									}
+  								});
+								}
+								
 								{
 								{
 									// Your API KEY
@@ -233,22 +248,6 @@ First level spells, dear companion, are the building blocks of our magical reper
 								}
 								}
 							</script>
-							<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
-</script>
 						</article>
 
 						<!-- Second Level Spells -->	
