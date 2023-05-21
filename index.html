@@ -221,14 +221,13 @@ First level spells, dear companion, are the building blocks of our magical reper
 												} else {
 													var materialcomponent = ""
 												}
-												
+
 												tableBody += "<tr class='panel'>";
 												tableBody += "<td colspan='15'>" + row[16] + materialcomponent + "</td>"
 												tableBody += "</tr>";
-												
 											}
 										});
-
+										
 										document.getElementById("first-table-head").innerHTML = tableHead;
 										document.getElementById("first-table-body").innerHTML = tableBody;
 										
