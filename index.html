@@ -24,9 +24,9 @@
 			}
 
 			.panel {
-				overflow: hidden;
-				max-height: 0;
-  				transition: max-height 0.2s ease-out;
+				display: none;
+  				overflow: hidden;
+  				transition: display 0.2s ease-out;
 			}
 		</style>
 	</head>
@@ -240,11 +240,11 @@ First level spells, dear companion, are the building blocks of our magical reper
     												this.classList.toggle("active");
     												var panel = this.nextElementSibling;
 												
-    												if (panel.style.maxHeight) {
-												      panel.style.maxHeight = null;
+    												if (panel.style.display === "table-row") {
+													panel.style.display = "none";
 												} else {
-												      panel.style.maxHeight = panel.scrollHeight + "px";
-											    	}
+													panel.style.display = "table-row";
+												}
  											});
 										}
 									}
@@ -344,10 +344,11 @@ First level spells, dear companion, are the building blocks of our magical reper
 											cview[i].addEventListener("click", function() {
     												this.classList.toggle("active");
     												var panel = this.nextElementSibling;
-    												if (panel.style.maxHeight) {
-													panel.style.maxHeight = null;
+												
+    												if (panel.style.display === "table-row") {
+													panel.style.display = "none";
 												} else {
-													panel.style.maxHeight = panel.scrollHeight + "px";
+													panel.style.display = "table-row";
 												}
  											});
 										}
