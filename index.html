@@ -19,14 +19,13 @@
 				white-space: nowrap;
 			}
 
-			.view:hover {
+			.view. active.view:hover {
   				background-color: #ccc; 
 			}
 
 			.panel {
-				max-height: 0;
   				overflow: hidden;
-  				transition: display 0.2s ease-out;
+				display: none;
 			}
 		</style>
 	</head>
@@ -349,11 +348,11 @@ First level spells, dear companion, are the building blocks of our magical reper
     												this.classList.toggle("active");
     												var panel = this.nextElementSibling;
 												
-    												if (panel.style.Maxheight) {
-													panel.style.Maxheight = null;
+    												if (panel.style.display === "table-row") {
+													panel.style.display = "none";
 												} else {
-													panel.style.Maxheight = panel.scrollHeight + "px";
-												} 
+													panel.style.display = "table-row";
+												}
  											});
 										}
 									}
