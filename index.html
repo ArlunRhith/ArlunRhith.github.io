@@ -11,43 +11,63 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			table.fold-table > tbody > tr.view td,
-table.fold-table > tbody > tr.view th {
+		<script>
+table.fold-table > tbody > tr.view td, table.fold-table > tbody > tr.view th {
   cursor: pointer;
 }
-
+table.fold-table > tbody > tr.view td:first-child,
+table.fold-table > tbody > tr.view th:first-child {
+  position: relative;
+  padding-left: 20px;
+}
+			
 table.fold-table > tbody > tr.view td:first-child:before,
 table.fold-table > tbody > tr.view th:first-child:before {
-  content: "\f0d7";
-  transition: all 0.3s ease;
-   
-
- }
-    table.fold-table > tbody > tr.view.open td:first-child:before,
-table.fold-table > tbody > tr.view.open th:first-child:before {
-  content: "\f0da";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 9px;
+  height: 16px;
+  margin-top: -8px;
+  font: 16px fontawesome;
+  color: #999;
+  content: "";
   transition: all 0.3s ease;
 }
-
-table.fold-table > tbody > tr.view. td:first-child:before,
-table.fold-table > tbody > tr.view.open th:first-child:before {
+			table.fold-table > tbody > tr.view:nth-child(4n-1) {
+  background: #eee;
+}
+table.fold-table > tbody > tr.view:hover {
+  background: #000;
+}
+table.fold-table > tbody > tr.view.open {
+  background: tomato;
+  color: white;
+}
+			table.fold-table > tbody > tr.view.open td:first-child:before, table.fold-table > tbody > tr.view.open th:first-child:before {
   transform: rotate(-180deg);
   color: #333;
 }
-
 table.fold-table > tbody > tr.fold {
   display: none;
 }
-
 table.fold-table > tbody > tr.fold.open {
   display: table-row;
 }
-
-.fold-content {
+			
+			.fold-content {
   padding: 0.5em;
 }
-		</style>
+.fold-content h3 {
+  margin-top: 0;
+}
+.fold-content > table {
+  border: 2px solid #ccc;
+}
+.fold-content > table > tbody tr:nth-child(even) {
+  background: #eee;
+}
+</script>
 	</head>
 	<body class="is-preload">
 
@@ -199,22 +219,11 @@ First level spells, dear companion, are the building blocks of our magical reper
 
 							<!-- Creating table -->
 							<script>
-								$(function () {
-  $(".fold-table tr.view").on("click", function () {
-    $(this).toggleClass("open").next(".fold").toggleClass("open");
-  });
-});
-
-$("#expand-collapse").on("click", function () {
-  if ($(this).html() == "Expand All") {
-    $(".fold-table tr.view, .fold").addClass("open");
-    $(this).html("Collapse All");
-  } else {
-    $(".fold-table tr.view, .fold").removeClass("open");
-    $(this).html("Expand All");
-  }
-});
-								
+								$(function(){
+  									$(".fold-table tr.view").on("click", function(){
+    									$(this).toggleClass("open").next(".fold").toggleClass("open");
+  									});
+								});
 								{
 								{
 									// Your API KEY
