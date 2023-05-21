@@ -12,11 +12,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script>.table {width:100%; font-family:sans-serif; border-collapse:collapse; border:1px solid #d2d2d2;}
-.table th { text-align:left; padding:4px 8px; font-size:90%; }
-.table td { border-top:1px solid #d2d2d2; padding:4px 8px;}
-.table tr:hover td {cursor:pointer; background:#f8f8f8;}
-.collapse {display:none;}</script>
+		<script>.collapse {display:none;}</script>
 	</head>
 	<body class="is-preload">
 
@@ -159,16 +155,9 @@ First level spells, dear companion, are the building blocks of our magical reper
 							<h4>Available First Level Spell Scrolls</h4>
 							<!-- Table -->
 							<div class="table-wrapper">
-								<table class="jAccordionTable table table-hover" data-page-size="6" data-page-navigation=".pagination" data-limit-navigation="5">
+								<table class="jAccordionTable table table-hover">
 									<thead id="first-table-head"></thead>
 									<tbody id="first-table-body"></tbody>
-									<tfoot class="hide-if-no-paging">
-        									<tr>
-          									<td colspan="6" class="text-center">
-            									<div class="pagination">@pagination</div>
-          									</td>
-        									</tr>
-  									</tfoot>
 								</table>
 							</div>
 							<!-- Table -->
@@ -225,6 +214,34 @@ First level spells, dear companion, are the building blocks of our magical reper
 									document.addEventListener("gapi-loaded", (e) => {
 										loadFirst();
 									});
+									
+								function accordionTable(i,elem) {
+  var table = $(elem),
+      tbody = table.find('tbody'),
+      th_index = 0,
+      th_sortType = "string";
+
+  //accordion on tbody > tr
+  tbody.find('tr:first').addClass('table-acc-header');
+  tbody.find('tr:last').addClass('table-acc-body');  
+  $('.table-acc-header').click(function() {
+    table.find('.table-acc-body').addClass('collapse');
+    $(this).next('.table-acc-body').removeClass('collapse');
+  });
+
+  function mapTDs(i, elem){
+    var txt = $("td", elem).eq(th_index).text();
+    $(elem).attr("data-sortval", txt);
+  }
+  function sortAsc(a, b){
+    var aData = $(a).attr("data-sortval"),
+        bData = $(b).attr("data-sortval");
+    if(th_sortType==="int"){ 
+      return +bData < +aData ? 1 : -1; // Integer
+    }else{   
+      return  bData <  aData ? 1 : -1; // String or else
+    }
+  }
 								}
 								}
 							</script>
@@ -300,34 +317,6 @@ First level spells, dear companion, are the building blocks of our magical reper
 									});
 								}
 								}
-								
-								function accordionTable(i,elem) {
-  var table = $(elem),
-      tbody = table.find('tbody'),
-      th_index = 0,
-      th_sortType = "string";
-
-  //accordion on tbody > tr
-  tbody.find('tr:first').addClass('table-acc-header');
-  tbody.find('tr:last').addClass('table-acc-body');  
-  $('.table-acc-header').click(function() {
-    table.find('.table-acc-body').addClass('collapse');
-    $(this).next('.table-acc-body').removeClass('collapse');
-  });
-
-  function mapTDs(i, elem){
-    var txt = $("td", elem).eq(th_index).text();
-    $(elem).attr("data-sortval", txt);
-  }
-  function sortAsc(a, b){
-    var aData = $(a).attr("data-sortval"),
-        bData = $(b).attr("data-sortval");
-    if(th_sortType==="int"){ 
-      return +bData < +aData ? 1 : -1; // Integer
-    }else{   
-      return  bData <  aData ? 1 : -1; // String or else
-    }
-  }
 							</script>
 						</article>
 
