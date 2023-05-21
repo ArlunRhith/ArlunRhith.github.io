@@ -13,32 +13,32 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			tr.view {
+			tr.viewOne {
   				cursor: pointer;
   				transition: 0.4s;
 				white-space: nowrap;
 			}
 			
-			tr.view1 {
+			tr.viewTwo {
   				cursor: pointer;
   				transition: 0.4s;
 				white-space: nowrap;
 			}
 
-			tr.view:active tr.view:hover {
+			tr.viewOne:active tr.viewOne:hover {
   				background-color: rgba(255, 255, 255, 0.150);
 			}
 			
-			tr.view1.active tr.view1:hover {
+			tr.viewTwo.active tr.viewTwo:hover {
   				background-color: rgba(255, 255, 255, 0.150);
 			}
 
-			tr.panel {
+			tr.panelOne {
   				overflow: hidden;
 				display: none;
 			}
 			
-			tr.panel1 {
+			tr.panelTwo {
   				overflow: hidden;
 				display: none;
 			}
@@ -213,7 +213,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr class='view1'>";
+												tableBody += "<tr class='viewOne'>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 15) {
 														if (rowindex === 14) {
@@ -237,7 +237,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 													var materialcomponent = ""
 												}
 
-												tableBody += "<tr class='panel1'>";
+												tableBody += "<tr class='panelOne'>";
 												tableBody += "<td colspan='15'>" + row[16] + materialcomponent + "</td>"
 												tableBody += "</tr>";
 											}
@@ -246,18 +246,18 @@ First level spells, dear companion, are the building blocks of our magical reper
 										document.getElementById("first-table-head").innerHTML = tableHead;
 										document.getElementById("first-table-body").innerHTML = tableBody;
 										
-										var cview1 = document.getElementsByClassName("view1");
+										var cviewOne = document.getElementsByClassName("viewOne");
 										var i;
 									
-										for (i = 0; i < cview1.length; i++) {
-											cview1[i].addEventListener("click", function() {
+										for (i = 0; i < cviewOne.length; i++) {
+											cviewOne[i].addEventListener("click", function() {
     												this.classList.toggle("active");
-    												var panel1 = this.nextElementSibling;
+    												var panelOne = this.nextElementSibling;
 												
-    												if (panel1.style.display === "table-row") {
-													panel1.style.display = "none";
+    												if (panelOne.style.display === "table-row") {
+													panelOne.style.display = "none";
 												} else {
-													panel1.style.display = "table-row";
+													panelOne.style.display = "table-row";
 												}
  											});
 										}
@@ -320,7 +320,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 												});
 												tableHead += "</tr>";
 											} else {
-												tableBody += "<tr class='view'>";
+												tableBody += "<tr class='viewTwo'>";
 												row.forEach((val, rowindex) => {
 													if (rowindex < 15) {
 														if (rowindex === 14) {
@@ -344,7 +344,7 @@ First level spells, dear companion, are the building blocks of our magical reper
 													var materialcomponent = ""
 												}
 
-												tableBody += "<tr class='panel'>";
+												tableBody += "<tr class='panelTwo'>";
 												tableBody += "<td colspan='15'>" + row[16] + materialcomponent + "</td>"
 												tableBody += "</tr>";
 											}
@@ -353,18 +353,18 @@ First level spells, dear companion, are the building blocks of our magical reper
 										document.getElementById("second-table-head").innerHTML = tableHead;
 										document.getElementById("second-table-body").innerHTML = tableBody;
 										
-										var cview = document.getElementsByClassName("view");
+										var cviewTwo = document.getElementsByClassName("viewTwo");
 										var i;
 									
-										for (i = 0; i < cview.length; i++) {
-											cview[i].addEventListener("click", function() {
+										for (i = 0; i < cviewTwo.length; i++) {
+											cviewTwo[i].addEventListener("click", function() {
     												this.classList.toggle("active");
-    												var panel = this.nextElementSibling;
+    												var panelTwo = this.nextElementSibling;
 												
-    												if (panel.style.display === "table-row") {
-													panel.style.display = "none";
+    												if (panelTwo.style.display === "table-row") {
+													panelTwo.style.display = "none";
 												} else {
-													panel.style.display = "table-row";
+													panelTwo.style.display = "table-row";
 												}
  											});
 										}
