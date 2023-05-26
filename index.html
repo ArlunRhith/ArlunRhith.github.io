@@ -289,67 +289,65 @@
 										tableHead += "</tr>";
 
 										response.result.values.forEach((row, index) => {
-											if (index >= 2) {
-												tableBody += "<tr class='viewOne'>";
-							
-												var level = row[1] + "st";
-												var name = row[2];
-												var school = row[3];
-												var components = row[4].replace("1","V").replace("2","S").replace('3',"M*");
-												if (row[5] != "") {
-													var componentdesc = "<p>*" + row[15] + "</p>";
-												} else {
-													var componentdesc = "";
-												}
-												var concentration = row[6].replace("FALSE", "").replace("TRUE", " (C)");
-												var ritual = row[7].replace("FALSE", "").replace("TRUE", " (R)");
-												var castingtime = row[8];
-												var castingtype = row[9].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
-												var durationtime = row[10].replace("0","");
-												var durationunit = row[11];
-												var durationtype = row[12];
-												if (row[13] != "Ranged") {
-													var origin = row[13];
-												} else {
-													var origin = "";
-												}
-												if (row[14] != "") {
-													var distance = row[14].replace("0", "") + " ft";
-												}
-												if (row[15] != "") {
-													var aoe = "(" row[16] + " " + row[15] + ")";
-												}
-												var savetype = row[17].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
-												var attacktype = row[18].replace("2", " Ranged");
-												var damage = row[19];
-												var effect = row[20];
-												var spelldesc = row[21];
-												if (row[22] != "") {
-													var tag = "<p>" + row[22] + "</p>";
-												} else {
-													var tag = "";
-												}
-											
-												tableBody += "<td>" + level + "</td>";
-												tableBody += "<td><table><tr><th>" + name + concentration + ritual + "</th></tr><tr><td>" + school + "&#183;" + components + "</td></tr></table></td>";
-												tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
-												tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
-												tableBody += "<td>" + origin + distance + aoe + "</td>";
-												tableBody += "<td>" + savetype + attacktype + "</td>";
-												tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
-												tableBody += "</tr>";
-																
-												tableBody += "<tr class='panelOne'>";
-												tableBody += "<td colspan='7'><table>";
-												tableBody += "<tr><th>Level</th><th>Casting Time</th><th>Range/Area</th><th>Components</th>";
-												tableBody += "<td>" + level + "</td><td>" + [castingtime, castingtype].join(' ') + "</td><td>" + origin + distance + aoe + "</td><td>" + components + "</td>";
-												tableBody += "</tr><tr>";
-												tableBody += "<th>Duration</th><th>School</th><th>Attack/Save</th><th>Damage/Effect</th>"
-												tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td><td>" + school + "</td><td>" + savetype + attacktype + "</td><td>" + [damage, effect].join(' ') + "</td>";
-												tableBody += "</tr><tr><td>" + spelldesc + componentdesc + tag + "</td></tr>";
-												tableBody += "</table></td>";
-												tableBody += "</tr>";
+											tableBody += "<tr class='viewOne'>";
+
+											var level = row[0] + "st";
+											var name = row[1];
+											var school = row[2];
+											var components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
+											if (row[4] != "") {
+												var componentdesc = "<p>*" + row[4] + "</p>";
+											} else {
+												var componentdesc = "";
 											}
+											var concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+											var ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+											var castingtime = row[7];
+											var castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											var durationtime = row[9].replace("0","");
+											var durationunit = row[10];
+											var durationtype = row[11];
+											if (row[12] != "Ranged") {
+												var origin = row[12];
+											} else {
+												var origin = "";
+											}
+											if (row[13] != "") {
+												var distance = row[13].replace("0", "") + " ft";
+											}
+											if (row[14] != "") {
+												var aoe = "(" row[15] + " " + row[14] + ")";
+											}
+											var savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
+											var attacktype = row[17].replace("2", " Ranged");
+											var damage = row[18];
+											var effect = row[19];
+											var spelldesc = row[20];
+											if (row[21] != "") {
+												var tag = "<p>" + row[21] + "</p>";
+											} else {
+												var tag = "";
+											}
+
+											tableBody += "<td>" + level + "</td>";
+											tableBody += "<td><table><tr><th>" + name + concentration + ritual + "</th></tr><tr><td>" + school + "&#183;" + components + "</td></tr></table></td>";
+											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
+											tableBody += "<td>" + origin + distance + aoe + "</td>";
+											tableBody += "<td>" + savetype + attacktype + "</td>";
+											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "</tr>";
+
+											tableBody += "<tr class='panelOne'>";
+											tableBody += "<td colspan='7'><table>";
+											tableBody += "<tr><th>Level</th><th>Casting Time</th><th>Range/Area</th><th>Components</th>";
+											tableBody += "<td>" + level + "</td><td>" + [castingtime, castingtype].join(' ') + "</td><td>" + origin + distance + aoe + "</td><td>" + components + "</td>";
+											tableBody += "</tr><tr>";
+											tableBody += "<th>Duration</th><th>School</th><th>Attack/Save</th><th>Damage/Effect</th>"
+											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td><td>" + school + "</td><td>" + savetype + attacktype + "</td><td>" + [damage, effect].join(' ') + "</td>";
+											tableBody += "</tr><tr><td>" + spelldesc + componentdesc + tag + "</td></tr>";
+											tableBody += "</table></td>";
+											tableBody += "</tr>";
 										});
 										
 										document.getElementById("first-table-head").innerHTML = tableHead;
@@ -375,7 +373,7 @@
 									function loadFirst() {
 										// Spreadsheet ID
 										const spreadsheetId = "1igmXqUyzz3EpP5mOPrDvbxSgrBIKFJ-x1huj-dWaH-w";
-										const range = "1st Level!A1:V";
+										const range = "1st Level!A3:V";
 										getPublicValues({ spreadsheetId, range }, displayFirst);
 									}
 
