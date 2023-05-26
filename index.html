@@ -300,7 +300,7 @@
 												var componentdesc = "<p>*" + row[4] + "</p>";
 											} else {
 												var componentdesc = "";
-										}
+											}
 											var concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
 											var ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
 											var castingtime = row[7];
@@ -339,16 +339,16 @@
 											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
 											tableBody += "</tr>";
 
-											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7'><table>";
-											tableBody += "<tr><th>Level</th><th>Casting Time</th><th>Range/Area</th><th>Components</th>";
-									        	tableBody += "<td>" + level + "</td><td>" + [castingtime, castingtype].join(' ') + "</td><td>" + origin + distance + aoe + "</td><td>" + components + "</td>";
-											tableBody += "</tr><tr>";
-											tableBody += "<th>Duration</th><th>School</th><th>Attack/Save</th><th>Damage/Effect</th>"
-											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td><td>" + school + "</td><td>" + savetype + attacktype + "</td><td>" + [damage, effect].join(' ') + "</td>";
-											tableBody += "</tr><tr><td>" + spelldesc + componentdesc + tag + "</td></tr>";
-											tableBody += "</table></td>";
-											tableBody += "</tr>";
+// 											tableBody += "<tr class='panelOne'>";
+// 											tableBody += "<td colspan='7'><table>";
+// 											tableBody += "<tr><th>Level</th><th>Casting Time</th><th>Range/Area</th><th>Components</th>";
+// 									        	tableBody += "<td>" + level + "</td><td>" + [castingtime, castingtype].join(' ') + "</td><td>" + origin + distance + aoe + "</td><td>" + components + "</td>";
+// 											tableBody += "</tr><tr>";
+// 											tableBody += "<th>Duration</th><th>School</th><th>Attack/Save</th><th>Damage/Effect</th>"
+// 											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td><td>" + school + "</td><td>" + savetype + attacktype + "</td><td>" + [damage, effect].join(' ') + "</td>";
+// 											tableBody += "</tr><tr><td>" + spelldesc + componentdesc + tag + "</td></tr>";
+// 											tableBody += "</table></td>";
+// 											tableBody += "</tr>";
 										});
 										
 										document.getElementById("first-table-head").innerHTML = tableHead;
