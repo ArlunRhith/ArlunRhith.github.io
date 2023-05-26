@@ -125,14 +125,14 @@
 											} 
 										});
 
-										document.getElementById("prices-table-head").innerHTML = tableHead;
-										document.getElementById("prices-table-body").innerHTML = tableBody;
+										document.getElementById("pricing-table-head").innerHTML = tableHead;
+										document.getElementById("pricing-table-body").innerHTML = tableBody;
 									}
 
 									function loadPrices() {
 										// Spreadsheet ID
 										const spreadsheetId = "1igmXqUyzz3EpP5mOPrDvbxSgrBIKFJ-x1huj-dWaH-w";
-										const range = "Shop Front!A1:E";
+										const range = "Shop Front!A7:F14";
 										getPublicValues({ spreadsheetId, range }, displayPrices);
 									}
 
