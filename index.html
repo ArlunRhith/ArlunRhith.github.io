@@ -94,10 +94,10 @@
 							<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
 
-							<h4>Available Cantrip Spell Scrolls</h4>
+							<h4>Spell Scroll Prices</h4>
 							<!-- Table -->
 							<div class="table-wrapper">
-								<table>
+								<table class="alt">
 									<thead id="pricing-table-head"></thead>
 									<tbody id="pricing-table-body"></tbody>
 								</table>
@@ -138,7 +138,7 @@
 									function loadPrices() {
 										// Spreadsheet ID
 										const spreadsheetId = "1igmXqUyzz3EpP5mOPrDvbxSgrBIKFJ-x1huj-dWaH-w";
-										const range = "Shop Front!A7:F14";
+										const range = "Shop Front!A8:F14";
 										getPublicValues({ spreadsheetId, range }, displayPrices);
 									}
 
