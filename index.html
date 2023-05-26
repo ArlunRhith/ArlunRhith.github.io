@@ -291,7 +291,7 @@
 
 										response.result.values.forEach((row, index) => {
 											
-// 											var level = row[0] + "st";
+											level = row[0] + "st";
 // 											var name = row[1];
 // 											var school = row[2];
 // 									         	var components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
@@ -330,7 +330,7 @@
 // 											}
 											
 											tableBody += "<tr class='viewOne'>";
-											tableBody += "<td>" + row[0] + "st" + "</td>";
+											tableBody += "<td>" + level + "</td>";
 // 											tableBody += "<td><table><tr><th>" + name + concentration + ritual + "</th></tr><tr><td>" + school + "&#183;" + components + "</td></tr></table></td>";
 // 											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
 // 											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
