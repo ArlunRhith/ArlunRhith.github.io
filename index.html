@@ -116,13 +116,19 @@
 										let tableBody = "";
 
 										response.result.values.forEach((row, index) => {
-											if (index <= 2) {
+											if (index <= 1) {
 												tableHead += "<tr>";
 												row.forEach((val, rowindex) => {
 													tableHead += "<th>" + val + "</th>"
 												});
 												tableHead += "</tr>";
-											} else {
+											} else if (index > 5) {
+												tableBody += "<tr>";
+												row.forEach((val, rowindex) => {
+													tableBody += "<th>" + val + "</th>"
+												});
+											tableBody += "</tr>";
+											} else  {
 												tableBody += "<tr>";
 												row.forEach((val, rowindex) => {
 													tableBody += "<td>" + val + "</td>"
