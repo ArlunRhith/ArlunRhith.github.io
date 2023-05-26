@@ -295,39 +295,39 @@
 											name = row[1];
 											school = row[2];
 									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
-											if (row[4] != "") {
-												componentdesc = "<p>*" + row[4] + "</p>";
-											} else {
-												componentdesc = "";
-											}
-											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
-											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
-											castingtime = row[7];
-											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
-											durationtime = row[9].replace("0","");
-											durationunit = row[10];
-											durationtype = row[11];
-											if (row[12] != "Ranged") {
-												origin = row[12];
-											} else {
-								                		origin = "";
-											}
-											if (row[13] != "") {
-												distance = row[13].replace("0", "") + " ft";
-											}
-											if (row[14] != "") {
-												aoe = "(" row[15] + " " + row[14] + ")";
-											}
-											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
-											attacktype = row[17].replace("2", " Ranged");
-											damage = row[18];
-											effect = row[19];
-											spelldesc = row[20];
-											if (row[21] != "") {
-												tag = "<p>" + row[21] + "</p>";
-											} else {
-												tag = "";
-											}
+// 											if (row[4] != "") {
+// 												componentdesc = "<p>*" + row[4] + "</p>";
+// 											} else {
+// 												componentdesc = "";
+// 											}
+// 											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+// 											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+// 											castingtime = row[7];
+// 											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+// 											durationtime = row[9].replace("0","");
+// 											durationunit = row[10];
+// 											durationtype = row[11];
+// 											if (row[12] != "Ranged") {
+// 												origin = row[12];
+// 											} else {
+// 								                		origin = "";
+// 											}
+// 											if (row[13] != "") {
+// 												distance = row[13].replace("0", "") + " ft";
+// 											}
+// 											if (row[14] != "") {
+// 												aoe = "(" row[15] + " " + row[14] + ")";
+// 											}
+// 											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
+// 											attacktype = row[17].replace("2", " Ranged");
+// 											damage = row[18];
+// 											effect = row[19];
+// 											spelldesc = row[20];
+// 											if (row[21] != "") {
+// 												tag = "<p>" + row[21] + "</p>";
+// 											} else {
+// 												tag = "";
+// 											}
 											
 											tableBody += "<tr class='viewOne'>";
 											tableBody += "<td>" + level + "</td>";
