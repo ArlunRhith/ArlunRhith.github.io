@@ -118,9 +118,9 @@
 										response.result.values.forEach((row, index) => {
 											if (index === 0) {
 												tableHead += "<tr>";
-												tableHead += "<th rowspan='2' style="vertical-align:middle">" + row[0] + "</th>";
-												tableHead += "<th colspan='4' style="text-align:center;">" + row[1] + "</th>";
-												tableHead += "<th rowspan='2' style="vertical-align:middle">" + row[5] + "</th>";
+												tableHead += "<th rowspan='2'>" + row[0] + "</th>";
+												tableHead += "<th colspan='4'>" + row[1] + "</th>";
+												tableHead += "<th rowspan='2'>" + row[5] + "</th>";
 												tableHead += "</tr>";
 											} else if (index === 1) {
 												tableHead += "<tr>";
