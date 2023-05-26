@@ -933,7 +933,7 @@ input, select, textarea {
 
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
-		overflow-x: auto;
+		overflow-x: clip;
 	}
 
 	table {
@@ -953,6 +953,9 @@ input, select, textarea {
 
 		table td {
 			padding: 0.75em 0.75em;
+			overflow: hidden; 
+			text-overflow: ellipsis; 
+			word-wrap: break-word;
 		}
 
 		table th {
