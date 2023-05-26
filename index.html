@@ -260,43 +260,76 @@
 									function displayFirst(response) {
 										let tableHead = "";
 										let tableBody = "";
+										
+										tableHead += "<tr>";
+										tableHead += "<th>Level</th>";
+										tableHead += "<th>Name</th>";
+										tableHead += "<th>Casting Time</th>";
+										tableHead += "<th>Duration</th>";
+										tableHead += "<th>Range/Area</th>";
+										tableHead += "<th>Attack/Save</th>";
+										tableHead += "</tr>";
 
 										response.result.values.forEach((row, index) => {
-											if (index <= 1) {
-												tableHead += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 15) {
-														(tableHead += '<th>' + val + "</th>")
-													}
-												});
-												tableHead += "</tr>";
-											} else {
+											if (index > 1) {
 												tableBody += "<tr class='viewOne'>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 15) {
-														if (rowindex === 14) {
-															 val = val.replace("1","V").replace("2","S").replace('3',"M*")
-														} else if (rowindex === 7) {
-															val = val.replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour")
-														} else if (rowindex === 12) {
-															val = val.replace("FALSE", "No").replace("TRUE", "Yes")
-														} else if (rowindex === 13) {
-															val = val.replace("FALSE", "No").replace("TRUE", "Yes")
-														}
-														(tableBody += "<td>" + val + "</td>")
-													}
-											});
 												
-												tableBody += "</tr>";
-												
-												if (row[15] != "") {
-													var materialcomponent = "<p>*" + row[15] + "</p>"
+												var level = row[1] + "st"
+												var name = row[2]
+												var school = row[3]
+												var components = row[4].replace("1","V").replace("2","S").replace('3',"M*")
+												if (row[5] != "") {
+													var componentdesc = "<p>*" + row[15] + "</p>"
 												} else {
-													var materialcomponent = ""
+													var componentdesc = ""
 												}
-
+												var concentration = row[6].replace("FALSE", "").replace("TRUE", " (C)")
+												var ritual = row[7].replace("FALSE", "").replace("TRUE", " (R)")
+												var castingtime = row[8]
+												var castingtype = row[9].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour")
+												var durationtime = row[10].replace("0","")
+												var durationunit = row[11]
+												var durationtype = row[12]
+												if (row[13] != "Ranged") {
+													var origin = row[13]
+												} else {
+													var origin = ""
+												}
+												if (row[14] != "") {
+													var distance = row[14].replace("0", "") + " ft"
+												}
+												if (row[15] != "") {
+													var aoe = "(" row[16] + " " + row[15] + ")"
+												}
+												var savetype = row[17].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save")
+												var attacktype = row[18].replace("2", " Ranged")
+												var damage = row[19]
+												var effect = row[20]
+												var spelldesc = row[21]
+												if (row[22] != "") {
+													var tag = "<p>" + row[22] + "</p>"
+												} else {
+													var tag = ""
+												}
+											
+												tableBody += "<td>" + level + "</td>";
+												tableBody += "<td><table><tr><th>" + name + concentration + ritual + "</th></tr><tr><td>" + school + "&#183;" + components + "</td></tr></table></td>";
+												tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
+												tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
+												tableBody += "<td>" + origin + distance + aoe + "</td>";
+												tableBody += "<td>" + savetype + attacktype + "</td>";
+												tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+												tableBody += "</tr>";
+																
 												tableBody += "<tr class='panelOne'>";
-												tableBody += "<td colspan='15'>" + row[16] + materialcomponent + "</td>"
+												tableBody += "<td colspan='7'><table>" 
+												tableBody += "<tr><th>Level</th><th>Casting Time</th><th>Range/Area</th><th>Components</th>"
+												tableBody += "<td>" + level + "</td><td>" + [castingtime, castingtype].join(' ') + "</td><td>" + origin + distance + aoe + "</td><td>" + components + "</td>"
+												tableBody += "</tr><tr>"
+												tableBody += "<th>Duration</th><th>School</th><th>Attack/Save</th><th>Damage/Effect</th>"
+												tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td><td>" + school + "</td><td>" + savetype + attacktype + "</td><td>" + [damage, effect].join(' ') + "</td>"
+												tableBody += "</tr><tr><td>" + spelldesc + componentdesc + tag + "</td></tr>"
+												tableBody += "</table></td>"
 												tableBody += "</tr>";
 											}
 										});
@@ -324,7 +357,7 @@
 									function loadFirst() {
 										// Spreadsheet ID
 										const spreadsheetId = "1igmXqUyzz3EpP5mOPrDvbxSgrBIKFJ-x1huj-dWaH-w";
-										const range = "1st Level!A1:Q";
+										const range = "1st Level!A1:V";
 										getPublicValues({ spreadsheetId, range }, displayFirst);
 									}
 
