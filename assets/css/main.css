@@ -933,7 +933,7 @@ input, select, textarea {
 
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
-		overflow-x: clip;
+		overflow-x: auto;
 	}
 
 	table {
@@ -945,6 +945,9 @@ input, select, textarea {
 			border: solid 1px #ffffff;
 			border-left: 0;
 			border-right: 0;
+			overflow: hidden; 
+			text-overflow: ellipsis; 
+			word-wrap: break-word;
 		}
 
 			table tbody tr:nth-child(4n + 3) {
@@ -953,9 +956,6 @@ input, select, textarea {
 
 		table td {
 			padding: 0.75em 0.75em;
-			overflow: hidden; 
-			text-overflow: ellipsis; 
-			word-wrap: break-word;
 		}
 
 		table th {
