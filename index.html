@@ -295,23 +295,23 @@
 											name = row[1];
 											school = row[2];
 									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
-// 											if (row[4] != "") {
-// 												componentdesc = "<p>*" + row[4] + "</p>";
-// 											} else {
-// 												componentdesc = "";
-// 											}
+											if (row[4] != "") {
+												componentdesc = "<p>*" + row[4] + "</p>";
+											} else {
+												componentdesc = "";
+											}
 											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
 											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
-// 											castingtime = row[7];
-// 											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
-// 											durationtime = row[9].replace("0","");
-// 											durationunit = row[10];
-// 											durationtype = row[11];
-// 											if (row[12] != "Ranged") {
-// 												origin = row[12];
-// 											} else {
-// 								                		origin = "";
-// 											}
+											castingtime = row[7];
+											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											durationtime = row[9].replace("0","");
+											durationunit = row[10];
+											durationtype = row[11];
+											if (row[12] != "Ranged") {
+												origin = row[12];
+											} else {
+								                		origin = "";
+											}
 // 											if (row[13] != "") {
 // 												distance = row[13].replace("0", "") + " ft";
 // 											}
@@ -331,9 +331,9 @@
 											
 											tableBody += "<tr class='viewOne'>";
 											tableBody += "<td>" + level + "</td>";
-											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + "&#183" + components + "</td>";
-// 											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
-// 											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
+											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
+											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
 // 											tableBody += "<td>" + origin + distance + aoe + "</td>";
 // 											tableBody += "<td>" + savetype + attacktype + "</td>";
 // 											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
