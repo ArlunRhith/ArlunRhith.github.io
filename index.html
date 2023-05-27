@@ -44,11 +44,13 @@
 			.panelOne {
   				overflow: hidden;
 				display: none;
+				text-align: left;
 			}
 			
 			.panelTwo {
   				overflow: hidden;
 				display: none;
+				text-align: left;
 			}
 		</style>
 	</head>
@@ -297,7 +299,7 @@
 											school = row[2];
 									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
 											if (row[4] != "") {
-												componentdesc = "<p>*" + row[4] + "</p>";
+												componentdesc = "<p>*" + row[4] "</p>";
 											} else {
 												componentdesc = "";
 											}
@@ -355,7 +357,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7'>" + spelldesc + componentdesc + tag + "</td>";
+											tableBody += "<td colspan='7'>" + spelldesc + [componentdesc, tag].join('') + "</td>";
 											tableBody += "</tr>";
 										});
 										
