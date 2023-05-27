@@ -355,14 +355,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7'><table>";
-											tableBody += "<tr><th>Level</th><th>Casting Time</th><th>Range/Area</th><th>Components</th>";
-									        	tableBody += "<td>" + level + "</td><td>" + [castingtime, castingtype].join(' ') + "</td><td>" + origin + distance + aoe + "</td><td>" + components + "</td>";
-											tableBody += "</tr><tr>";
-											tableBody += "<th>Duration</th><th>School</th><th>Attack/Save</th><th>Damage/Effect</th>"
-											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td><td>" + school + "</td><td>" + savetype + attacktype + "</td><td>" + [damage, effect].join(' ') + "</td>";
-											tableBody += "</tr><tr><td>" + spelldesc + componentdesc + tag + "</td></tr>";
-											tableBody += "</table></td>";
+											tableBody += "<td colspan='7'>" + spelldesc + componentdesc + tag + "</td>";
 											tableBody += "</tr>";
 										});
 										
