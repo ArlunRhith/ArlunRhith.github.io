@@ -304,16 +304,9 @@
 											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
 											castingtime = row[7];
 											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
-											durationtime = row[9].replace("0","");
+											durationtime = row[9].replace("0",row[11]);
 											durationunit = row[10];
-											durationtype = row[11];
-											
-											if (durationtime === "") {
-												duration = durationtype
-											else {
-												duration = [durationtime, durationunit].join(' ')
-											}
-												
+																			
 // 											if (row[12] != "Ranged") {
 // 												origin = row[12];
 // 											} else {
@@ -348,7 +341,7 @@
 											tableBody += "<td>" + level + "</td>";
 											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
 											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
-											tableBody += "<td>" + [durationtime, durationunit].join(' ') + durationtype + "</td>";
+											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
 // 											tableBody += "<td>" + origin + distance + aoe + "</td>";
 // 											tableBody += "<td>" + savetype + attacktype + "</td>";
 // 											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
