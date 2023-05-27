@@ -305,7 +305,7 @@
 											castingtime = row[7];
 											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
 											
-											if (row[9] === 0) {
+											if (row[9] === "0") {
 												durationtime = row[11]	
 											} else {
 												durationtime = row[9]
@@ -319,17 +319,17 @@
 								                		origin = "";
 											}
 												
-// 											if (row[13] != "") {
-// 												distance = row[13].replace("0", "") + " ft";
-// 											} else {
-// 												distance = "";
-// 											}
+											if (row[13] != "") {
+												distance = "<p>" + row[13].replace("0", "") + " ft</p>";
+											} else {
+												distance = "";
+											}
 												
-// 											if (row[14] != "") {
-// 												aoe = "(" row[15] + " " + row[14] + ")";
-// 											} else {
-// 												aoe = "";
-// 											}
+											if (row[14] != "") {
+												aoe = "<p>(" row[15] + " " + row[14] + ")</p>";
+											} else {
+												aoe = "";
+											}
 												
 											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
 											attacktype = row[17].replace("2", " Ranged");
