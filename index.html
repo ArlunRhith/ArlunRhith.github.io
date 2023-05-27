@@ -13,6 +13,12 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			.viewCantrip {
+  				cursor: pointer;
+  				transition: 0.4s;
+				white-space: nowrap;
+			}
+			
 			.viewOne {
   				cursor: pointer;
   				transition: 0.4s;
@@ -23,6 +29,14 @@
   				cursor: pointer;
   				transition: 0.4s;
 				white-space: nowrap;
+			}
+			
+			.viewCantrip:hover {
+  				background-color: rgba(255, 255, 255, 0.150);
+			}
+			
+			.viewCantrip:active {
+  				background-color: rgba(255, 255, 255, 0.150);
 			}
 
 			.viewOne:hover {
@@ -39,6 +53,11 @@
 			
 			.viewTwo:active {
   				background-color: rgba(255, 255, 255, 0.150);
+			}
+			
+			.panelCantrip {
+  				overflow: hidden;
+				display: none;
 			}
 
 			.panelOne {
@@ -200,32 +219,103 @@
 										let tableHead = "";
 										let tableBody = "";
 
+										tableHead += "<tr>";
+										tableHead += "<th>" + "Level" + "</th>";
+										tableHead += "<th>" + "Name" + "</th>";
+										tableHead += "<th>" + "Casting Time" + "</th>";
+										tableHead += "<th>" + "Duration" + "</th>";
+										tableHead += "<th>" + "Range/Area" + "</th>";
+										tableHead += "<th>" + "Attack/Save" + "</th>";
+										tableHead += "<th>" + "Damage/Effect" + "</th>";
+										tableHead += "</tr>";
+
 										response.result.values.forEach((row, index) => {
-											if (index === 0) {
-												tableHead += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
-														(tableHead += '<th>' + val + "</th>")
-													}
-												});
-												tableHead += "</tr>";
-											} else if (typeof row[9] !== "undefined") {
-												tableBody += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 9) {
-														(tableBody += "<td>" + val + "</td>")
-													}
-											});
-
-												tableBody += "<td></tr>";
-												tableBody += "<tr>";
-												tableBody += "<td colspan='9'>" + row[9] + "</td>"
-												tableBody += "</tr>";
+											
+											level = "Cantrip";
+											name = row[1];
+											school = row[2];
+									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
+											if (row[4] != "") {
+												componentdesc = "*" + row[4] + ".";
+											} else {
+												componentdesc = "";
 											}
-										});
+											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+											castingtime = row[7];
+											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											
+											if (row[9] === "0") {
+												durationtime = row[11]	
+											} else {
+												durationtime = row[9]
+											}
+											
+											durationunit = row[10];
+																			
+											if (row[12] != "Ranged") {
+												origin = row[12];
+											} else {
+								                		origin = "";
+											}
+												
+											if (row[13] != "" && row[13] != "0") {
+												distance = row[13] + " ft";
+											} else {
+												distance = "";
+											}
+												
+											if (row[14] != "") {
+												aoe = "(" + row[15] + " ft " + row[14] + ")";
+											} else {
+												aoe = "";
+											}
+												
+											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
+											attacktype = row[17].replace("2", " Ranged");
+											damage = row[18];
+											effect = row[19];
+											spelldesc = row[20];
+												
+											if (row[21] != "" && row[21] != "undefined") {
+												tag = row[21] + ".";
+											} else {
+												tag = "";
+											}
+											
+											tableBody += "<tr class='viewCantrip'>";
+											tableBody += "<td>" + level + "</td>";
+											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
+											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
+											tableBody += "<td>" + [origin + distance, aoe].join(' ') + "</td>";
+											tableBody += "<td>" + savetype + attacktype + "</td>";
+											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "</tr>";
 
-										document.getElementById("cantrip-table-head").innerHTML = tableHead;
-										document.getElementById("cantrip-table-body").innerHTML = tableBody;
+											tableBody += "<tr class='panelCantrip'>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join('&nbsp') + "</td>";
+											tableBody += "</tr>";
+										});
+										
+										document.getElementById("first-table-head").innerHTML = tableHead;
+										document.getElementById("first-table-body").innerHTML = tableBody;
+										
+										var cviewCantrip = document.getElementsByClassName("viewCantrip");
+										var i;
+									
+										for (i = 0; i < cviewCantrip.length; i++) {
+											cviewCantrip[i].addEventListener("click", function() {
+    												this.classList.toggle("active");
+    												var panelCantrip = this.nextElementSibling;
+												
+    												if (panelCantrip.style.display === "table-row") {
+													panelCantrip.style.display = "none";
+												} else {
+													panelCantrip.style.display = "table-row";
+												}
+ 											});
+										}
 									}
 
 									function loadCantrips() {
@@ -327,7 +417,7 @@
 											}
 												
 											if (row[14] != "") {
-												aoe = "(" + row[15] + " " + row[14] + ")";
+												aoe = "(" + row[15] + " ft " + row[14] + ")";
 											} else {
 												aoe = "";
 											}
@@ -338,7 +428,7 @@
 											effect = row[19];
 											spelldesc = row[20];
 												
-											if (row[21] != "") {
+											if (row[21] != "" && row[21] != "undefined") {
 												tag = row[21] + ".";
 											} else {
 												tag = "";
@@ -355,7 +445,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join(' ') + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join('&nbsp') + "</td>";
 											tableBody += "</tr>";
 										});
 										
@@ -435,44 +525,83 @@
 										let tableHead = "";
 										let tableBody = "";
 
-										response.result.values.forEach((row, index) => {
-											if (index <= 1) {
-												tableHead += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 15) {
-														(tableHead += '<th>' + val + "</th>")
-													}
-												});
-												tableHead += "</tr>";
-											} else {
-												tableBody += "<tr class='viewTwo'>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 15) {
-														if (rowindex === 14) {
-															 val = val.replace("1","V").replace("2","S").replace('3',"M*")
-														} else if (rowindex === 7) {
-															val = val.replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour")
-														} else if (rowindex === 12) {
-															val = val.replace("FALSE", "No").replace("TRUE", "Yes")
-														} else if (rowindex === 13) {
-															val = val.replace("FALSE", "No").replace("TRUE", "Yes")
-														}
-														(tableBody += "<td>" + val + "</td>")
-													}
-											});
-												
-												tableBody += "</tr>";
-												
-												if (row[15] != "") {
-													var materialcomponent = "<p>*" + row[15] + "</p>"
-												} else {
-													var materialcomponent = ""
-												}
+										tableHead += "<tr>";
+										tableHead += "<th>" + "Level" + "</th>";
+										tableHead += "<th>" + "Name" + "</th>";
+										tableHead += "<th>" + "Casting Time" + "</th>";
+										tableHead += "<th>" + "Duration" + "</th>";
+										tableHead += "<th>" + "Range/Area" + "</th>";
+										tableHead += "<th>" + "Attack/Save" + "</th>";
+										tableHead += "<th>" + "Damage/Effect" + "</th>";
+										tableHead += "</tr>";
 
-												tableBody += "<tr class='panelTwo'>";
-												tableBody += "<td colspan='15'>" + row[16] + materialcomponent + "</td>"
-												tableBody += "</tr>";
+										response.result.values.forEach((row, index) => {
+											
+											level = row[0] + "nd";
+											name = row[1];
+											school = row[2];
+									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
+											if (row[4] != "") {
+												componentdesc = "*" + row[4] + ".";
+											} else {
+												componentdesc = "";
 											}
+											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+											castingtime = row[7];
+											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											
+											if (row[9] === "0") {
+												durationtime = row[11]	
+											} else {
+												durationtime = row[9]
+											}
+											
+											durationunit = row[10];
+																			
+											if (row[12] != "Ranged") {
+												origin = row[12];
+											} else {
+								                		origin = "";
+											}
+												
+											if (row[13] != "" && row[13] != "0") {
+												distance = row[13] + " ft";
+											} else {
+												distance = "";
+											}
+												
+											if (row[14] != "") {
+												aoe = "(" + row[15] + " ft " + row[14] + ")";
+											} else {
+												aoe = "";
+											}
+												
+											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
+											attacktype = row[17].replace("2", " Ranged");
+											damage = row[18];
+											effect = row[19];
+											spelldesc = row[20];
+												
+											if (row[21] != "" && row[21] != "undefined") {
+												tag = row[21] + ".";
+											} else {
+												tag = "";
+											}
+											
+											tableBody += "<tr class='viewTwo'>";
+											tableBody += "<td>" + level + "</td>";
+											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
+											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
+											tableBody += "<td>" + [origin + distance, aoe].join(' ') + "</td>";
+											tableBody += "<td>" + savetype + attacktype + "</td>";
+											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "</tr>";
+
+											tableBody += "<tr class='panelTwo'>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join('&nbsp') + "</td>";
+											tableBody += "</tr>";
 										});
 
 										document.getElementById("second-table-head").innerHTML = tableHead;
