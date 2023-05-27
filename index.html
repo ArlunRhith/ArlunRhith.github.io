@@ -320,8 +320,8 @@
 								                		origin = "";
 											}
 												
-											if (row[13] != "") {
-												distance = row[13].replace("0", "") + " ft";
+											if (row[13] != "" && row[13] != "0") {
+												distance = row[13] + " ft";
 											} else {
 												distance = "";
 											}
@@ -355,7 +355,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<p>" + [componentdesc, tag].join(' ') + "</p>" + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join(' ') + "</td>";
 											tableBody += "</tr>";
 										});
 										
