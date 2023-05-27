@@ -287,6 +287,7 @@
 										tableHead += "<th>" + "Duration" + "</th>";
 										tableHead += "<th>" + "Range/Area" + "</th>";
 										tableHead += "<th>" + "Attack/Save" + "</th>";
+										tableHead += "<th>" + "Damage/Effect" + "</th>";
 										tableHead += "</tr>";
 
 										response.result.values.forEach((row, index) => {
@@ -319,17 +320,17 @@
 								                		origin = "";
 											}
 												
-											if (row[13] != "") {
-												distance = "<p>" + row[13].replace("0", "") + " ft</p>";
-											} else {
-												distance = "";
-											}
+// 											if (row[13] != "") {
+// 												distance = "<p>" + row[13].replace("0", "") + " ft</p>";
+// 											} else {
+// 												distance = "";
+// 											}
 												
-											if (row[14] != "") {
-												aoe = "<p>(" row[15] + " " + row[14] + ")</p>";
-											} else {
-												aoe = "";
-											}
+// 											if (row[14] != "") {
+// 												aoe = "<p>(" row[15] + " " + row[14] + ")</p>";
+// 											} else {
+// 												aoe = "";
+// 											}
 												
 											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
 											attacktype = row[17].replace("2", " Ranged");
