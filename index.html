@@ -44,13 +44,11 @@
 			.panelOne {
   				overflow: hidden;
 				display: none;
-				text-align: left;
 			}
 			
 			.panelTwo {
   				overflow: hidden;
 				display: none;
-				text-align: left;
 			}
 		</style>
 	</head>
@@ -357,7 +355,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7'>" + spelldesc + "<p>" + componentdesc + tag + "</p>" + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<p>" + [componentdesc, tag].join(' ') + "</p>" + "</td>";
 											tableBody += "</tr>";
 										});
 										
