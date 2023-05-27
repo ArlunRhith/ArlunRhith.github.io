@@ -297,7 +297,7 @@
 											school = row[2];
 									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
 											if (row[4] != "") {
-												componentdesc = "*" + row[4] + "&#46";
+												componentdesc = "<p>*" + row[4] + ".</p>";
 											} else {
 												componentdesc = "";
 											}
@@ -320,8 +320,8 @@
 								                		origin = "";
 											}
 												
-											if (row[13] != "") {
-												distance = row[13].replace("0", "") + " ft";
+											if (row[13] != "" && row[13] != "0") {
+												distance = row[13] + " ft";
 											} else {
 												distance = "";
 											}
@@ -339,7 +339,7 @@
 											spelldesc = row[20];
 												
 											if (row[21] != "") {
-												tag = row[21].replace(",", ", ") + "&#46";
+												tag = "<p>" + row[21].replace(",", ", ") + ".</p>";
 											} else {
 												tag = "";
 											}
