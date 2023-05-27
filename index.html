@@ -307,23 +307,23 @@
 											durationtime = row[9].replace("0",row[11]);
 											durationunit = row[10];
 																			
-// 											if (row[12] != "Ranged") {
-// 												origin = row[12];
-// 											} else {
-// 								                		origin = "";
-// 											}
+											if (row[12] != "Ranged") {
+												origin = row[12];
+											} else {
+								                		origin = "";
+											}
 												
-// 											if (row[13] != "") {
-// 												distance = row[13].replace("0", "") + " ft";
-// 											} else {
-// 												distance = ""
-// 											}
+											if (row[13] != "") {
+												distance = row[13].replace("0", "") + " ft";
+											} else {
+												distance = "";
+											}
 												
-// 											if (row[14] != "") {
-// 												aoe = "(" row[15] + " " + row[14] + ")";
-// 											} else {
-// 												aoe = ""
-// 											}
+											if (row[14] != "") {
+												aoe = "(" row[15] + " " + row[14] + ")";
+											} else {
+												aoe = "";
+											}
 												
 											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
 											attacktype = row[17].replace("2", " Ranged");
@@ -331,11 +331,11 @@
 											effect = row[19];
 											spelldesc = row[20];
 												
-// 											if (row[21] != "") {
-// 												tag = "<p>" + row[21] + "</p>";
-// 											} else {
-// 												tag = "";
-// 											}
+											if (row[21] != "") {
+												tag = "<p>" + row[21] + "</p>";
+											} else {
+												tag = "";
+											}
 											
 											tableBody += "<tr class='viewOne'>";
 											tableBody += "<td>" + level + "</td>";
