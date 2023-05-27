@@ -298,7 +298,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelCantrip'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldescc + "<br>" + [componentdescc, tagc].join('&nbsp') + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldescc + "<p>" + [componentdescc, tagc].join('&nbsp') + "</p></td>";
 											tableBody += "</tr>";
 										});
 										
@@ -438,6 +438,10 @@
 												tag = "";
 											}
 											
+											if (tag === "undefined.") {
+												tag = ""
+											}
+											
 											tableBody += "<tr class='viewOne'>";
 											tableBody += "<td>" + level + "</td>";
 											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
@@ -449,7 +453,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join('&nbsp') + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<p>" + [componentdesc, tag].join('&nbsp') + "</p></td>";
 											tableBody += "</tr>";
 										});
 										
@@ -593,6 +597,10 @@
 												tag2 = "";
 											}
 											
+											if (tag2 === "undefined.") {
+												tag2 = ""
+											}
+											
 											tableBody += "<tr class='viewTwo'>";
 											tableBody += "<td>" + level2 + "</td>";
 											tableBody += "<td>" + name2 + concentration2 + ritual2 + "<br>" + school2 + " &#183 " + components2 + "</td>";
@@ -604,7 +612,7 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelTwo'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc2 + "<br>" + [componentdesc2, tag2].join('&nbsp') + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc2 + "<p>" + [componentdesc2, tag2].join('&nbsp') + "</p></td>";
 											tableBody += "</tr>";
 										});
 
