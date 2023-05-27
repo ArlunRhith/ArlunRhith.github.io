@@ -272,7 +272,7 @@
 											spelldescc = row[20];
 												
 											if (row[21] != "" && row[21] != "undefined") {
-												tagc = row[21] + ".";
+												tagc = row[21].replace(",", ", ") + ".";
 											} else {
 												tagc = "";
 											}
@@ -427,7 +427,7 @@
 											spelldesc = row[20];
 												
 											if (row[21] != "" && row[21] != "undefined") {
-												tag = row[21] + ".";
+												tag = row[21].replace(",", ", ") + ".";
 											} else {
 												tag = "";
 											}
@@ -586,7 +586,7 @@
 											spelldesc2 = row[20];
 												
 											if (row[21] != "" && row[21] != "undefined") {
-												tag2 = row[21] + ".";
+												tag2 = row[21].replace(",", ", ") + ".";
 											} else {
 												tag2 = "";
 											}
