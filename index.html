@@ -304,7 +304,13 @@
 											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
 											castingtime = row[7];
 											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
-											durationtime = row[9].replace("0",row[11]);
+											
+											if (row[9] === 0) {
+												durationtime = row[11]	
+											} else {
+												durationtime = row[9]
+											}
+											
 											durationunit = row[10];
 																			
 											if (row[12] != "Ranged") {
@@ -313,17 +319,17 @@
 								                		origin = "";
 											}
 												
-											if (row[13] != "") {
-												distance = row[13].replace("0", "") + " ft";
-											} else {
-												distance = "";
-											}
+// 											if (row[13] != "") {
+// 												distance = row[13].replace("0", "") + " ft";
+// 											} else {
+// 												distance = "";
+// 											}
 												
-											if (row[14] != "") {
-												aoe = "(" row[15] + " " + row[14] + ")";
-											} else {
-												aoe = "";
-											}
+// 											if (row[14] != "") {
+// 												aoe = "(" row[15] + " " + row[14] + ")";
+// 											} else {
+// 												aoe = "";
+// 											}
 												
 											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
 											attacktype = row[17].replace("2", " Ranged");
@@ -343,8 +349,8 @@
 											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
 											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
 // 											tableBody += "<td>" + origin + distance + aoe + "</td>";
-// 											tableBody += "<td>" + savetype + attacktype + "</td>";
-// 											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "<td>" + savetype + attacktype + "</td>";
+											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
 											tableBody += "</tr>";
 
 // 											tableBody += "<tr class='panelOne'>";
