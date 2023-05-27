@@ -307,16 +307,21 @@
 											durationtime = row[9].replace("0","");
 											durationunit = row[10];
 											durationtype = row[11];
+											if (durationtime === "") {
+												duration = durationtype
+											else {
+												duration = [durationtime, durationunit].join(' ')
+											}
 											if (row[12] != "Ranged") {
 												origin = row[12];
 											} else {
 								                		origin = "";
 											}
-// 											if (row[13] != "") {
-// 												distance = row[13].replace("0", "") + " ft";
-// 											}
-// 											if (row[14] != "") {
-// 												aoe = "(" row[15] + " " + row[14] + ")";
+											if (row[13] != "") {
+												distance = row[13].replace("0", "") + " ft";
+											}
+											if (row[14] != "") {
+												aoe = "(" row[15] + " " + row[14] + ")";
 // 											}
 // 											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
 // 											attacktype = row[17].replace("2", " Ranged");
@@ -333,10 +338,10 @@
 											tableBody += "<td>" + level + "</td>";
 											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
 											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
-											tableBody += "<td>" + [durationtype, durationunit].join(' ') + durationtype + "</td>";
-// 											tableBody += "<td>" + origin + distance + aoe + "</td>";
-// 											tableBody += "<td>" + savetype + attacktype + "</td>";
-// 											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "<td>" + duration + "</td>";
+											tableBody += "<td>" + origin + distance + aoe + "</td>";
+											tableBody += "<td>" + savetype + attacktype + "</td>";
+											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
 											tableBody += "</tr>";
 
 // 											tableBody += "<tr class='panelOne'>";
