@@ -297,7 +297,7 @@
 											school = row[2];
 									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
 											if (row[4] != "") {
-												componentdesc = "*" + row[4];
+												componentdesc = "*" + row[4] + ".";
 											} else {
 												componentdesc = "";
 											}
@@ -339,7 +339,7 @@
 											spelldesc = row[20];
 												
 											if (row[21] != "") {
-												tag = row[21];
+												tag = row[21] + ".";
 											} else {
 												tag = "";
 											}
