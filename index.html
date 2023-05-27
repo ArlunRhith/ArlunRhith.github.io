@@ -320,14 +320,14 @@
 								                		origin = "";
 											}
 												
-// 											if (row[13] != "") {
-// 												distance = "<p>" + row[13].replace("0", "") + " ft</p>";
-// 											} else {
-// 												distance = "";
-// 											}
+											if (row[13] != "") {
+												distance = "<p>" + row[13].replace("0", "") + " ft</p>";
+											} else {
+												distance = "";
+											}
 												
 											if (row[14] != "") {
-												aoe = "<p>(" row[15] + " " + row[14] + ")</p>";
+												aoe = "<p>(" + row[15] + " " + row[14] + ")</p>";
 											} else {
 												aoe = "";
 											}
@@ -349,8 +349,8 @@
 											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
 											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
 											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
-// 											tableBody += "<td>" + origin + distance + aoe + "</td>";
-											tableBody += "<td>" + savetype + attacktype + "</td>";
+											tableBody += "<td>" + origin + distance + "<br>" + aoe + "</td>";
+											tableBody += "<td>" + savetype + "<br>" + attacktype + "</td>";
 											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
 											tableBody += "</tr>";
 
