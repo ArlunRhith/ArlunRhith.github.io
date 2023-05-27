@@ -231,75 +231,75 @@
 
 										response.result.values.forEach((row, index) => {
 											
-											level = "Cantrip";
-											name = row[1];
-											school = row[2];
-									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
+											levelc = "Cantrip";
+											namec = row[1];
+											schoolc = row[2];
+									         	componentsc = row[3].replace("1","V").replace("2","S").replace('3',"M*");
 											if (row[4] != "") {
-												componentdesc = "*" + row[4] + ".";
+												componentdescc = "*" + row[4] + ".";
 											} else {
-												componentdesc = "";
+												componentdescc = "";
 											}
-											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
-											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
-											castingtime = row[7];
-											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											concentrationc = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+											ritualc = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+											castingtimec = row[7];
+											castingtypec = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
 											
 											if (row[9] === "0") {
-												durationtime = row[11]	
+												durationtimec = row[11]	
 											} else {
-												durationtime = row[9]
+												durationtimec = row[9]
 											}
 											
-											durationunit = row[10];
+											durationunitc = row[10];
 																			
 											if (row[12] != "Ranged") {
-												origin = row[12];
+												originc = row[12];
 											} else {
-								                		origin = "";
+								                		originc = "";
 											}
 												
 											if (row[13] != "" && row[13] != "0") {
-												distance = row[13] + " ft";
+												distancec = row[13] + " ft";
 											} else {
-												distance = "";
+												distancec = "";
 											}
 												
 											if (row[14] != "") {
-												aoe = "(" + row[15] + " ft " + row[14] + ")";
+												aoec = "(" + row[15] + " ft " + row[14] + ")";
 											} else {
-												aoe = "";
+												aoec = "";
 											}
 												
-											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
-											attacktype = row[17].replace("2", " Ranged");
-											damage = row[18];
-											effect = row[19];
-											spelldesc = row[20];
+											savetypec = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
+											attacktypec = row[17].replace("2", " Ranged");
+											damagec = row[18];
+											effectc = row[19];
+											spelldescc = row[20];
 												
 											if (row[21] != "" && row[21] != "undefined") {
-												tag = row[21] + ".";
+												tagc = row[21] + ".";
 											} else {
-												tag = "";
+												tagc = "";
 											}
 											
 											tableBody += "<tr class='viewCantrip'>";
-											tableBody += "<td>" + level + "</td>";
-											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
-											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
-											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
-											tableBody += "<td>" + [origin + distance, aoe].join(' ') + "</td>";
-											tableBody += "<td>" + savetype + attacktype + "</td>";
-											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "<td>" + levelc + "</td>";
+											tableBody += "<td>" + namec + concentration + ritualc + "<br>" + schoolc + " &#183 " + componentsc + "</td>";
+											tableBody += "<td>" + [castingtimec, castingtypec].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtimec, durationunitc].join(' ') + "</td>";
+											tableBody += "<td>" + [originc + distancec, aoec].join(' ') + "</td>";
+											tableBody += "<td>" + savetypec + attacktypec + "</td>";
+											tableBody += "<td>" + [damagec, effectc].join(' ') + "</td>";							
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelCantrip'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join('&nbsp') + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldescc + "<br>" + [componentdescc, tagc].join('&nbsp') + "</td>";
 											tableBody += "</tr>";
 										});
 										
-										document.getElementById("first-table-head").innerHTML = tableHead;
-										document.getElementById("first-table-body").innerHTML = tableBody;
+										document.getElementById("cantrip-table-head").innerHTML = tableHead;
+										document.getElementById("cantrip-table-body").innerHTML = tableBody;
 										
 										var cviewCantrip = document.getElementsByClassName("viewCantrip");
 										var i;
@@ -537,70 +537,70 @@
 
 										response.result.values.forEach((row, index) => {
 											
-											level = row[0] + "nd";
-											name = row[1];
-											school = row[2];
-									         	components = row[3].replace("1","V").replace("2","S").replace('3',"M*");
+											level2 = row[0] + "nd";
+											name2 = row[1];
+											school2 = row[2];
+									         	components2 = row[3].replace("1","V").replace("2","S").replace('3',"M*");
 											if (row[4] != "") {
-												componentdesc = "*" + row[4] + ".";
+												componentdesc2 = "*" + row[4] + ".";
 											} else {
-												componentdesc = "";
+												componentdesc2 = "";
 											}
-											concentration = row[5].replace("FALSE", "").replace("TRUE", " (C)");
-											ritual = row[6].replace("FALSE", "").replace("TRUE", " (R)");
-											castingtime = row[7];
-											castingtype = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											concentration2 = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+											ritual2 = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+											castingtime2 = row[7];
+											castingtype2 = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
 											
 											if (row[9] === "0") {
-												durationtime = row[11]	
+												durationtime2 = row[11]	
 											} else {
-												durationtime = row[9]
+												durationtime2 = row[9]
 											}
 											
-											durationunit = row[10];
+											durationunit2 = row[10];
 																			
 											if (row[12] != "Ranged") {
-												origin = row[12];
+												origin2 = row[12];
 											} else {
-								                		origin = "";
+								                		origin2 = "";
 											}
 												
 											if (row[13] != "" && row[13] != "0") {
-												distance = row[13] + " ft";
+												distance2 = row[13] + " ft";
 											} else {
-												distance = "";
+												distance2 = "";
 											}
 												
 											if (row[14] != "") {
-												aoe = "(" + row[15] + " ft " + row[14] + ")";
+												aoe2 = "(" + row[15] + " ft " + row[14] + ")";
 											} else {
-												aoe = "";
+												aoe2 = "";
 											}
 												
-											savetype = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
-											attacktype = row[17].replace("2", " Ranged");
-											damage = row[18];
-											effect = row[19];
-											spelldesc = row[20];
+											savetype2 = row[16].replace("2", "DEX Save").replace("3", "CON Save").replace("5", "WIS Save");
+											attacktype2 = row[17].replace("2", " Ranged");
+											damage2 = row[18];
+											effect2 = row[19];
+											spelldesc2 = row[20];
 												
 											if (row[21] != "" && row[21] != "undefined") {
-												tag = row[21] + ".";
+												tag2 = row[21] + ".";
 											} else {
-												tag = "";
+												tag2 = "";
 											}
 											
 											tableBody += "<tr class='viewTwo'>";
-											tableBody += "<td>" + level + "</td>";
-											tableBody += "<td>" + name + concentration + ritual + "<br>" + school + " &#183 " + components + "</td>";
-											tableBody += "<td>" + [castingtime, castingtype].join(' ') + "</td>";
-											tableBody += "<td>" + [durationtime, durationunit].join(' ') + "</td>";
-											tableBody += "<td>" + [origin + distance, aoe].join(' ') + "</td>";
-											tableBody += "<td>" + savetype + attacktype + "</td>";
-											tableBody += "<td>" + [damage, effect].join(' ') + "</td>";							
+											tableBody += "<td>" + level2 + "</td>";
+											tableBody += "<td>" + name2 + concentration + ritual2 + "<br>" + school2 + " &#183 " + components2 + "</td>";
+											tableBody += "<td>" + [castingtime2, castingtype].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtime2, durationunit2].join(' ') + "</td>";
+											tableBody += "<td>" + [origin2 + distance2, aoe2].join(' ') + "</td>";
+											tableBody += "<td>" + savetype2 + attacktype2 + "</td>";
+											tableBody += "<td>" + [damage2, effect2].join(' ') + "</td>";							
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelTwo'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<br>" + [componentdesc, tag].join('&nbsp') + "</td>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc2 + "<br>" + [componentdesc2, tag2].join('&nbsp') + "</td>";
 											tableBody += "</tr>";
 										});
 
