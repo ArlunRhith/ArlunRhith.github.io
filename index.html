@@ -96,8 +96,8 @@
 								<li><a href="#1stlevel">1st Level</a></li>
 								<li><a href="#2ndlevel">2nd Level</a></li>
 								<li><a href="#aboutus">About Us</a><li>
-								<!--<li><a href="#3rdlevel">3rd Level</a></li>
-								<li><a href="#elements">Elements</a></li>-->
+								<li><a href="#3rdlevel">3rd Level</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -650,6 +650,17 @@
 						<!-- Third Level Spells -->
 						<article id="3rdlevel">
 							<h2 class="major">Third Level Spells</h2>
+							
+							<p>As an ardent wizard within the enchanting realms of Avalon aand Tsomogo, let me divulge the essence of third level spells, which epitomize the height of our magical prowess.</p>
+							<p>Third level spells exemplify the zenith of our arcane abilities, representing the culmination of diligent study, intense focus, and attunement to the mystical arts. These spells grant us access to extraordinary powers that weave enchantment, destruction, and manipulation of the fabric of reality.</p>
+							<p>Imagine wielding the spell "Fireball," a legendary incantation that conjures a searing orb of flames, engulfing enemies in its explosive fury. With a mere utterance and gesture, we command destructive forces to rain upon our foes, leaving devastation in their wake.</p>
+							<p>Envision invoking "Haste," a spell that quickens the pace of time around a chosen ally. Their movements become a blur as they gain supernatural speed, allowing them to act with unparalleled swiftness in combat or escape dire situations.</p>
+							<p>Delve into the mesmerizing depths of "Fly," which grants us the ability to soar through the air like a majestic bird, defying gravity and accessing new vantage points. With this spell, we gain a newfound perspective, evading obstacles and gaining tactical advantages.</p>
+							<p>Another renowned spell, "Counterspell," empowers us to thwart the arcane endeavors of others. We weave our own magical energies into a delicate web that unravels hostile spells, disrupting the machinations of opposing casters and preserving the safety of our allies.</p>
+							<p>These are but a few examples of the wondrous spells that await us at the third level. Each spell possesses its own unique essence, mechanics, and requirements, yet all share the common thread of profound impact. They unlock the door to unparalleled possibilities, expanding our repertoire of magical mastery.</p>
+							<p>It is vital to acknowledge that casting third level spells requires considerable focus, magical resources, and experience. As we progress along our arcane path, our capacity to harness and wield such potent magic grows. We learn to effectively manage our limited spell slots, choosing the optimal time and circumstance to unleash these powerful incantations.</p>
+							<p>Remember, dear companion, third level spells are a testament to our growth as wizards, a testament to the dedication and discipline we have invested in our craft. Embrace these spells with reverence and awe, for they grant us the ability to shape the very course of destiny within the realms of Avalon and Tsomogo.</p>
+							
 							<!-- Table -->
 							<div class="table-wrapper">
 								<table>
@@ -671,38 +682,113 @@
 										let tableHead = "";
 										let tableBody = "";
 
-										response.result.values.forEach((row, index) => {
-											if (index === 0) {
-												tableHead += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 7) {
-														(tableHead += '<th>' + val + "</th>")
-													}
-												});
-												tableHead += "</tr>";
-											} else {
-												tableBody += "<tr>";
-												row.forEach((val, rowindex) => {
-													if (rowindex < 7) {
-														(tableBody += "<td>" + val + "</td>")
-													}
-											});
+										tableHead += "<tr>";
+										tableHead += "<th>" + "Level" + "</th>";
+										tableHead += "<th>" + "Name" + "</th>";
+										tableHead += "<th>" + "Casting Time" + "</th>";
+										tableHead += "<th>" + "Duration" + "</th>";
+										tableHead += "<th>" + "Range/Area" + "</th>";
+										tableHead += "<th>" + "Attack/Save" + "</th>";
+										tableHead += "<th>" + "Damage/Effect" + "</th>";
+										tableHead += "</tr>";
 
-												tableBody += "<td></tr>";
-												tableBody += "<tr>";
-												tableBody += "<td colspan='7'>" + row[7] + "</td>"
-												tableBody += "</tr>";
+										response.result.values.forEach((row, index) => {
+											
+											level3 = row[0] + "nd";
+											name3 = row[1];
+											school3 = row[2];
+									         	components3 = row[3].replace("1","V").replace("2","S").replace('3',"M*");
+											if (row[4] != "") {
+												componentdesc3 = "*" + row[4] + ".";
+											} else {
+												componentdesc3 = "";
 											}
+											concentration3 = row[5].replace("FALSE", "").replace("TRUE", " (C)");
+											ritual3 = row[6].replace("FALSE", "").replace("TRUE", " (R)");
+											castingtime3 = row[7];
+											castingtype3 = row[8].replace("1", "Action").replace("2", "Bonus Action").replace("3", "Bonus Action").replace("4", "Reaction*").replace("5", "").replace("6", "Minite").replace("7", "Hour");
+											
+											if (row[9] === "0") {
+												durationtime3 = row[11]	
+											} else {
+												durationtime3 = row[9]
+											}
+											
+											durationunit3 = row[10];
+																			
+											if (row[12] != "Ranged") {
+												origin3 = row[12];
+											} else {
+								                		origin2 = "";
+											}
+												
+											if (row[13] != "" && row[13] != "0") {
+												distance3 = row[13] + " ft";
+											} else {
+												distance3 = "";
+											}
+												
+											if (row[14] != "") {
+												aoe3 = "(" + row[15] + " ft " + row[14] + ")";
+											} else {
+												aoe3 = "";
+											}
+												
+											savetype3 = row[16].replace("1", "STR Save").replace("2", "DEX Save").replace("3", "CON Save").replace("4", "INT Save").replace("5", "WIS Save").replace("6", "CHA Save");
+											attacktype3 = row[17].replace("1", "Melee").replace("2", " Ranged");
+											damage3 = row[18];
+											effect3 = row[19];
+											spelldesc3 = row[20];
+												
+											if (row[21] != "" && row[21] != "undefined") {
+												tag3 = row[21] + ".";
+											} else {
+												tag3 = "";
+											}
+											
+											if (tag2 === "undefined.") {
+												tag3 = ""
+											}
+											
+											tableBody += "<tr class='viewThree'>";
+											tableBody += "<td>" + level3 + "</td>";
+											tableBody += "<td>" + name3 + concentration3 + ritual3 + "<br>" + school3 + " &#183 " + components3 + "</td>";
+											tableBody += "<td>" + [castingtime3, castingtype3].join(' ') + "</td>";
+											tableBody += "<td>" + [durationtime3, durationunit3].join(' ') + "</td>";
+											tableBody += "<td>" + [origin3 + distance3, aoe3].join(' ') + "</td>";
+											tableBody += "<td>" + savetype3 + attacktype3 + "</td>";
+											tableBody += "<td>" + [damage3, effect3].join(' ') + "</td>";							
+											tableBody += "</tr>";
+
+											tableBody += "<tr class='panelTwo'>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc3 + "<p>" + [componentdesc3, tag3].join('&nbsp') + "</p></td>";
+											tableBody += "</tr>";
 										});
 
 										document.getElementById("third-table-head").innerHTML = tableHead;
 										document.getElementById("third-table-body").innerHTML = tableBody;
+										
+										var cviewThree = document.getElementsByClassName("viewThree");
+										var i;
+									
+										for (i = 0; i < cviewThree.length; i++) {
+											cviewThree[i].addEventListener("click", function() {
+    												this.classList.toggle("active");
+    												var panelThree = this.nextElementSibling;
+												
+    												if (panelThree.style.display === "table-row") {
+													panelThree.style.display = "none";
+												} else {
+													panelThree.style.display = "table-row";
+												}
+ 											});
+										}
 									}
 
 									function loadThird() {
 										// Spreadsheet ID
 										const spreadsheetId = "13Qz8h4mNOuiwfKaTSWFeOKh_OMSEckkyVXrj1BUWexU";
-										const range = "Level 3!A1:H";
+										const range = "Level 3!A3:V";
 										getPublicValues({ spreadsheetId, range }, displayThird);
 									}
 
