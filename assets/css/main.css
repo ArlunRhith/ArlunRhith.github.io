@@ -948,6 +948,7 @@ input, select, textarea {
 			overflow: hidden; 
 			text-overflow: ellipsis; 
 			word-wrap: break-word;
+			vertical-align: middle;
 		}
 
 			table tbody tr:nth-child(4n + 3) {
@@ -971,6 +972,7 @@ input, select, textarea {
 
 		table thead {
 			border-bottom: solid 2px #ffffff;
+			vertical-align: middle;
 		}
 
 		table tfoot {
@@ -985,6 +987,7 @@ input, select, textarea {
 				border: solid 1px #ffffff;
 				border-left-width: 0;
 				border-top-width: 0;
+				vertical-align: middle;
 			}
 
 				table.alt tbody tr td:first-child {
@@ -993,10 +996,12 @@ input, select, textarea {
 
 			table.alt tbody tr:first-child td {
 				border-top-width: 1px;
+				vertical-align: middle;
 			}
 
 			table.alt thead {
 				border-bottom: 0;
+				vertical-align: middle;
 			}
 
 			table.alt tfoot {
