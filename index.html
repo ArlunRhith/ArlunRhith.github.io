@@ -467,8 +467,11 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelOne'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc + "<p>" + [componentdesc, tag].join('&nbsp') + "</p></td>";
-											tableBody += "</tr>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc;
+											if (tag != "" && componentdesc != "") {	
+												tableBody += "<p>" + [componentdesc, tag].join('&nbsp') + "</p>";
+											}
+											tableBody += "</td></tr>";
 										});
 										
 										document.getElementById("first-table-head").innerHTML = tableHead;
@@ -626,8 +629,11 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelTwo'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc2 + "<p>" + [componentdesc2, tag2].join('&nbsp') + "</p></td>";
-											tableBody += "</tr>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc2;
+											if (tag2 != "" && componentdesc2 != "") {	
+												tableBody += "<p>" + [componentdesc2, tag2].join('&nbsp') + "</p>";
+											}
+											tableBody += "</td></tr>";
 										});
 
 										document.getElementById("second-table-head").innerHTML = tableHead;
@@ -786,8 +792,11 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelThree'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc3 + "<p>" + [componentdesc3, tag3].join('&nbsp') + "</p></td>";
-											tableBody += "</tr>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldesc3;
+											if (tag3 != "" && componentdesc3 != "") {	
+												tableBody += "<p>" + [componentdesc3, tag3].join('&nbsp') + "</p>";
+											}
+											tableBody += "</td></tr>";
 										});
 
 										document.getElementById("third-table-head").innerHTML = tableHead;
