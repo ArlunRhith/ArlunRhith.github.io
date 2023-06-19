@@ -309,8 +309,11 @@
 											tableBody += "</tr>";
 
 											tableBody += "<tr class='panelCantrip'>";
-											tableBody += "<td colspan='7' style='text-align:left'>" + spelldescc + "<p>" + [componentdescc, tagc].join('&nbsp') + "</p></td>";
-											tableBody += "</tr>";
+											tableBody += "<td colspan='7' style='text-align:left'>" + spelldescc;
+											if (tagc != "" && componentdescc != "") {	
+												tableBody += "<p>" = [componentdescc, tagc].join('&nbsp') + "</p>";
+											}
+											tableBody += "</td></tr>";
 										});
 										
 										document.getElementById("cantrip-table-head").innerHTML = tableHead;
